@@ -1,0 +1,11 @@
+0,Baldomero,Guerrero,Baldomero4,femenino,Baldomero@indizen.com,12,IB12934762137467,true
+1,Baruj,Carion,Baruj20,femenino,Baruj@indizen.com,20,IB129347621374656,true
+2,Baruj,Carion,Baruj20,femenino,Baruj@indizen.com,20,IB129347621374656,true
+3,Bartolomé,Guerrero,Bartolomé16,femenino,Bartolomé@indizen.com,18,IB12934762137467,true
+4,Canela,Cardiel,Canela26,masculino,Canela@indizen.com,23,IB129347621374621,true
+5,Baruc,Cariaga,Baruc18,masculino,Baruc@indizen.com,19,IB129347621374642,false
+6,Cándida,Cardoso,Cándida24,femenino,Cándida@indizen.com,22,IB129347621374635,true
+7,Barry,Castiyo,Barry12,femenino,Barry@indizen.com,16,IB129347621374663,true
+8,Balduino,Cardiel,Balduino6,masculino,Balduino@indizen.com,13,IB129347621374621,true
+9,Cándida,Grande,Cándida24,femenino,Cándida@indizen.com,22,IB129347621374684,true
+20,admin,adminsuper,hombre,masculino,admin@indizen.com,20,IBANFALSO,false

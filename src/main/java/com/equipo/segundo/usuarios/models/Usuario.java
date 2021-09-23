@@ -117,6 +117,13 @@ public class Usuario {
 	}
 
 
+
+	public String toFile() {
+		return id + "," + nombre + "," + apellido + "," + nick + ","
+				+ sexo + "," + email + "," + edad + "," + banco + "," + pelis;
+	}
+
+
 	
 
 
