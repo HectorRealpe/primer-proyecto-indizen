@@ -33,6 +33,25 @@ public class IndexController {
 		
 	}
 	
+	@GetMapping("/formulario")
+    public String form(Model model) {
+        model.addAttribute("titulo", "Formulario usuarios");
+        return "formulario";
+    }
+    
+    @PostMapping("/formulario")
+    public String procesar(Usuario usuario, Model model) {
+        
+        model.addAttribute("titulo", "Hemos añadido este usuario a la base de datos");
+        model.addAttribute("usuario", usuario);
+ 
+        //status.setComplete();
+        
+        return "resultado";
+    }
+    
+    
+	
 	@RequestMapping("/perfil")
 	public String perfil(Model model) {
 		
