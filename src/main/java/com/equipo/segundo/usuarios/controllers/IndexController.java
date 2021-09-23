@@ -18,7 +18,7 @@ public class IndexController {
 	@GetMapping({"/index", "/", "/home"})
 	public String index(Model model) {
 		
-		model.addAttribute("titulo", "Testeando pasar datos desde el controlador a la vista");
+		model.addAttribute("titulo", "Bienvenido");
 		
 		return "index";
 		
