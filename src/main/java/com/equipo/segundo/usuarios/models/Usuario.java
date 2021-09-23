@@ -10,16 +10,17 @@ public class Usuario {
 	private String email;
 	private int edad;
 	private String banco;
+	private boolean pelis;
 
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	public Usuario() {
 
-	}
 
-	public Usuario(String nombre, String apellido, String nick, String sexo, String email, int edad, String banco) {
+	public Usuario(int id, String nombre, String apellido, String nick, String sexo, String email, int edad,
+			String banco, boolean pelis) {
+		this.id = id;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.nick = nick;
@@ -27,6 +28,14 @@ public class Usuario {
 		this.email = email;
 		this.edad = edad;
 		this.banco = banco;
+		this.setPelis(pelis);
+	}
+
+
+
+
+	public Usuario() {
+		
 	}
 
 
@@ -87,10 +96,24 @@ public class Usuario {
 		this.banco = banco;
 	}
 
+
+
+	public boolean isPelis() {
+		return pelis;
+	}
+
+
+
+	public void setPelis(boolean pelis) {
+		this.pelis = pelis;
+	}
+
+
+
 	@Override
 	public String toString() {
-		return "Usuario [nombre=" + nombre + ", apellido=" + apellido + ", nick=" + nick + ", sexo=" + sexo + ", email="
-				+ email + ", edad=" + edad + ", banco=" + banco + "]";
+		return "Usuario [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", nick=" + nick + ", sexo="
+				+ sexo + ", email=" + email + ", edad=" + edad + ", banco=" + banco + ", pelis=" + pelis + "]";
 	}
 
 

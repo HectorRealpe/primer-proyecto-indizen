@@ -1,6 +1,5 @@
 package com.equipo.segundo.usuarios.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -8,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.equipo.segundo.usuarios.models.CRUD;
 import com.equipo.segundo.usuarios.models.Usuario;
 
 @Controller
@@ -40,9 +40,9 @@ public class IndexController {
 	
 	@RequestMapping("/listar")
 	public String listar(Model model) {
+		//Lista los usuarios que generamos en nuestra "base de datos"
+		List<Usuario> usuarios = new CRUD().creausuarios();
 		
-		List<Usuario> usuarios = new ArrayList<>();
-		usuarios.add(new Usuario("Héctor", "Realpe", "helui", "Masculino", "hl.realpe@indizen.com", 38, "IB1293476213746"));
 		
 		model.addAttribute("titulo", "Listado de usuarios");
 		model.addAttribute("usuarios", usuarios);
