@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${titulo}">Insert title here</title>
+</head>
+<body>
+	<h1 th:text="${titulo}"></h1>
+	
+	<div th:if="${usuarios.size() == 0}">¡no hay usuarios registrados en la lista!</div>
+	
+	<span th:text="${usuarios}"></span>
+
+	<table th:if="${usuarios.size()>0}">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>Apellido</th>
+				<th>String</th>
+				<th>Nick Name</th>
+				<th>Sexo</th>
+				<th>Email</th>
+				<th>Edad</th>
+				<th>Banco</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="usuario: ${usuarios}">
+				<td th:text="${usuario.nombre}">
+				<td th:text="${usuario.apellido}">
+				<td th:text="${usuario.sexo}">
+				<td th:text="${usuario.email}">
+				<td th:text="${usuario.edad}">
+				<td th:text="${usuario.banco}">		
+			</tr>		
+		</tbody>
+	
+	</table>
+
+</body>
+</html>
