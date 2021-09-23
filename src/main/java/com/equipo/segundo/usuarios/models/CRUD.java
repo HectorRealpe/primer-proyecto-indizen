@@ -1,5 +1,8 @@
 package com.equipo.segundo.usuarios.models;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -9,8 +12,13 @@ public class CRUD {
 	int rd;
 	int rd2;
 	public List<Usuario> creausuarios () {
-		//Genero una lista de usuarios aleatoria (primera consulta)
 		
+		//Creamos un fichero para hacer de "base de datos"
+		String sFichero = "fichero.txt";
+		File fichero = new File(sFichero);
+		
+		//Genero una lista de usuarios aleatoria (primera consulta)
+	
 		String[] nombres = { "Andrea", "David", "Baldomero", "Balduino", "Baldwin", "Baltasar", "Barry", "Bartolo",
 				"Bartolomé", "Baruc", "Baruj", "Candelaria", "Cándida", "Canela", "Caridad", "Carina", "Carisa",
 				"Caritina", "Carlota", "Baltazar"};
@@ -32,7 +40,19 @@ public class CRUD {
 				}
 			listausu.add(new Usuario(i,nombres[rd], apellidos[rd2], nombres[rd]+rd*2, sexo, nombres[rd]+"@indizen.com", rd+10, "IB1293476213746"+rd2*7, pelis));
 		}
+		listausu.add(new Usuario(20, "admin", "adminsuper", "hombre", "masculino", "admin@indizen.com", 20, "IBANFALSO", false));
+		
 		return listausu;
+	}
+	public void creatxt() {
+		 CRUD c = null;
+		 List<Usuario> listau = c.creausuarios();
+		 FileInputStream fis = new FileInputStream("Datos/usuarios.txt");
+		 ObjectInputStream ois = new ObjectInputStream(fis);
+
+		 listau = (List<listau>) ois.readObject();
+
+		 ois.close();
 	}
 	public String anadeusuario(Usuario u) {
 		

@@ -11,10 +11,10 @@
 	
 	<span th:text="${usuarios}"></span>
 
-	<table th:if="${usuarios.size()>0}">
+	<table border=1 th:if="${usuarios.size()>0}">
 		<thead>
 			<tr>
-			<th>id</th>
+				<th>id</th>
 				<th>Nombre</th>
 				<th>Apellido</th>
 				<th>genero</th>
@@ -22,12 +22,12 @@
 				<th>edad</th>
 				<th>Cuenta bancaria</th>
 				<th>peliculas alquiladas</th>
-				<th>Banco</th>
+				
 			</tr>
 		</thead>
 		<tbody>
 			<tr th:each="usuario: ${usuarios}">
-			<td th:text="${usuario.id}">
+				<td th:text="${usuario.id}">
 				<td th:text="${usuario.nombre}">
 				<td th:text="${usuario.apellido}">
 				<td th:text="${usuario.sexo}">
