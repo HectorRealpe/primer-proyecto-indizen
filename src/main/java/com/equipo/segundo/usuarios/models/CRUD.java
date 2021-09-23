@@ -45,14 +45,14 @@ public class CRUD {
 		return listausu;
 	}
 	public void creatxt() {
-		 CRUD c = null;
+	/*	 CRUD c = null;
 		 List<Usuario> listau = c.creausuarios();
 		 FileInputStream fis = new FileInputStream("Datos/usuarios.txt");
 		 ObjectInputStream ois = new ObjectInputStream(fis);
 
-		 listau = (List<listau>) ois.readObject();
+		
 
-		 ois.close();
+		 ois.close();*/
 	}
 	public String anadeusuario(Usuario u) {
 		

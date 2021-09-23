@@ -2,9 +2,34 @@
 <html xmlns:th="http://thymeleaf.org">
 <head>
 <meta charset="UTF-8" />
-<title th:text="${titulo}">Primer Proyecto Indizen</title>
+<title th:text="${titulo}"></title>
 </head>
 <body>
-	<H1 th:text="${titulo}"></H1>
+
+
+	<div>
+		<div>
+			<H1 th:text="${welcome}"></H1>
+			<p>Lorem Ipsum is simply dummy text of the printing and
+				typesetting industry. Lorem Ipsum has been the industry's standard
+				dummy text ever since the 1500s, when an unknown printer took a
+				galley of type and scrambled it to make a type specimen book.</p>
+		</div>
+		<div>
+			<h1 th:text="${login}"></h1>
+
+			<form action="">
+				<label for="" th:text="${email}"></label> <input type="text">
+				<label for="" th:text="${password}"></label> <input type="password">
+				<input type="submit" value="Inicio">
+			</form>
+
+			 
+			<a th:text="${singIn}" href="/usuarios/listar">hola</a>
+			
+		</div>
+
+	</div>
+
 </body>
 </html>

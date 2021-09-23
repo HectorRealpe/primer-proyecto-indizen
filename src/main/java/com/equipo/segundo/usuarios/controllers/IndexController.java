@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.equipo.segundo.usuarios.models.CRUD;
@@ -16,10 +17,17 @@ import com.equipo.segundo.usuarios.models.Usuario;
 public class IndexController {
 
 	// Routing inicial y paso de datos del controlador a la vista para un HTML muy básico
-	@GetMapping({"/index", "/", "/home"})
+	@GetMapping({"/index","/", "/home"})
 	public String index(Model model) {
 		
-		model.addAttribute("titulo", "Testeando pasar datos desde el controlador a la vista");
+		model.addAttribute("titulo", "Video Club");
+		model.addAttribute("welcome", "Bienvenido");
+		model.addAttribute("login", "Iniciar Sesion");
+		model.addAttribute("email", "Tu id");
+		model.addAttribute("password", "Tu nombre");
+		model.addAttribute("question", "¿Aun no te has registrado?");
+		model.addAttribute("singIn", "Registrar");
+		
 		
 		return "index";
 		
@@ -50,6 +58,12 @@ public class IndexController {
 		
 		return "listar";
 		
+	}
+	
+	
+	@RequestMapping(value = "/index")
+	public String pasarPaginaListar() {
+	    return "redirect:/usuarios/listar";
 	}
 	
 	// Otra forma de generar el listado.
