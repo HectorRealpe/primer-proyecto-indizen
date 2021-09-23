@@ -16,7 +16,7 @@ import com.equipo.segundo.usuarios.models.Usuario;
 public class IndexController {
 
 	// Routing inicial y paso de datos del controlador a la vista para un HTML muy básico
-	@GetMapping({"/index", "/", "/home"})
+	@GetMapping({"/index","/", "/home"})
 	public String index(Model model) {
 		
 		model.addAttribute("titulo", "Video Club");
@@ -60,7 +60,7 @@ public class IndexController {
 	}
 	
 	
-	@PostMapping(value = "/index")
+	@RequestMapping(value = "/index")
 	public String pasarPaginaListar() {
 	    return "redirect:/usuarios/listar";
 	}
