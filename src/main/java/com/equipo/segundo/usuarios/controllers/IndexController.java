@@ -14,6 +14,7 @@ import com.equipo.segundo.usuarios.models.Usuario;
 @RequestMapping("/usuarios")
 public class IndexController {
 
+	// Routing inicial y paso de datos del controlador a la vista para un HTML muy básico
 	@GetMapping({"/index", "/", "/home"})
 	public String index(Model model) {
 		
@@ -40,12 +41,16 @@ public class IndexController {
 	@RequestMapping("/listar")
 	public String listar(Model model) {
 		
-		List<Usuario> ususarios = new ArrayList<>();
+		List<Usuario> usuarios = new ArrayList<>();
+		usuarios.add(new Usuario("Héctor", "Realpe", "helui", "Masculino", "hl.realpe@indizen.com", 38, "IB1293476213746"));
+		
 		model.addAttribute("titulo", "Listado de usuarios");
-		model.addAttribute("usuarios", ususarios);
+		model.addAttribute("usuarios", usuarios);
 		
 		return "listar";
 		
 	}
+	
+	// Otra forma de generar el listado.
 	
 }

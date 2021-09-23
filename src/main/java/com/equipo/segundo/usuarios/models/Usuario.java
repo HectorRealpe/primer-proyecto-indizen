@@ -51,14 +51,6 @@ public class Usuario {
 		this.apellido = apellido;
 	}
 
-	public String getBanco() {
-		return banco;
-	}
-
-	public void setBanco(String banco) {
-		this.banco = banco;
-	}
-
 	public String getNick() {
 		return nick;
 	}
@@ -86,13 +78,22 @@ public class Usuario {
 	public void setEdad(int edad) {
 		this.edad = edad;
 	}
+	
+	public String getBanco() {
+		return banco;
+	}
+
+	public void setBanco(String banco) {
+		this.banco = banco;
+	}
 
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", banco=" + banco + ", nick="
-				+ nick + ", sexo=" + sexo + ", edad=" + edad + "]";
+		return "Usuario [nombre=" + nombre + ", apellido=" + apellido + ", nick=" + nick + ", sexo=" + sexo + ", email="
+				+ email + ", edad=" + edad + ", banco=" + banco + "]";
 	}
-	
+
+
 	
 
 
