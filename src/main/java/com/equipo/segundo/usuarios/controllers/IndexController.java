@@ -55,7 +55,7 @@ public class IndexController {
 		
 	}
 	
-	// Otra forma de generar el listado.
+	
 	
 	
 }
