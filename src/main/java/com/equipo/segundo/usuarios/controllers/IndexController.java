@@ -18,12 +18,14 @@ public class IndexController {
 	@GetMapping({"/index", "/", "/home"})
 	public String index(Model model) {
 		
-		model.addAttribute("titulo", "Testeando pasar datos desde el controlador a la vista");
+		model.addAttribute("titulo", "hola a todos");
 		
 		return "index";
 		
 	}
 	
+	
+	// routing del perfil para probar un solo objeto del controlador a la vista
 	@RequestMapping("/perfil")
 	public String perfil(Model model) {
 		
@@ -38,6 +40,8 @@ public class IndexController {
 		
 	}
 	
+	
+	// routing de un listado para pasar una lista de objetos del modelo a la vista
 	@RequestMapping("/listar")
 	public String listar(Model model) {
 		
@@ -52,5 +56,6 @@ public class IndexController {
 	}
 	
 	// Otra forma de generar el listado.
+	
 	
 }
