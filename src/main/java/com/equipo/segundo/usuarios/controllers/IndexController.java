@@ -3,16 +3,21 @@ package com.equipo.segundo.usuarios.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.equipo.segundo.usuarios.models.Usuario;
+import com.equipo.segundo.usuarios.models.service.IServicio;
 
 @Controller
 @RequestMapping("/usuarios")
 public class IndexController {
+	
+	@Autowired
+	private IServicio servicio;
 
 	// Routing inicial y paso de datos del controlador a la vista para un HTML muy básico
 	@GetMapping({"/index", "/", "/home"})
@@ -21,6 +26,15 @@ public class IndexController {
 		model.addAttribute("titulo", "hola a todos");
 		
 		return "index";
+		
+	}
+	
+	@GetMapping({"/servicio"})
+	public String servicio(Model model) {
+		
+		model.addAttribute("objeto", servicio.operacion());
+		
+		return "servicio";
 		
 	}
 	
