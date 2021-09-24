@@ -16,7 +16,7 @@ import com.equipo.segundo.usuarios.models.Usuario;
 //@RequestMapping("/usuarios")
 public class IndexController {
 	
-
+	List<Usuario> usuarios = new CRUD().creausuarios();
 
 	// Routing inicial y paso de datos del controlador a la vista para un HTML muy básico
 	@GetMapping({"/index","/", "/home"})
@@ -47,28 +47,14 @@ public class IndexController {
         return "resultado";
     }
     
-	@PostMapping("/perfil")
-	public String perfil(Model model) {
-		
-		Usuario usuario = new Usuario();		
-		usuario.setNombre("Héctor");
-		usuario.setApellido("Realpe");
-		usuario.setEmail("hl.realpe@indizen.com");
-		model.addAttribute("usuario", usuario);
-		model.addAttribute("titulo", "Perfil del usuario: ".concat(usuario.getNombre()));
-		
-		return "perfil";
-		
-	}
 	
 	@GetMapping("/listar")
 	public String listar(Model model) {
 		//Lista los usuarios que generamos en nuestra "base de datos"
-		List<Usuario> usuarios = new CRUD().creausuarios();
 		
 		
 		model.addAttribute("titulo", "Listado de usuarios");
-		model.addAttribute("usuarios", usuarios);
+		model.addAttribute("usuarios", this.usuarios);
 		
 		return "listar";
 		
