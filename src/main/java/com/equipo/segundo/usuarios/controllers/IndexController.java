@@ -17,6 +17,8 @@ import com.equipo.segundo.usuarios.models.Usuario;
 public class IndexController {
 	
 	List<Usuario> usuarios = new CRUD().creausuarios();
+	
+	CRUD c = new CRUD();
 
 	// Routing inicial y paso de datos del controlador a la vista para un HTML muy básico
 	@GetMapping({"/index","/", "/home"})
@@ -40,11 +42,14 @@ public class IndexController {
     
     @PostMapping("/form")
     public String procesar(Usuario usuario, Model model) {
-
+    	
+   
+    	c.anadeusu(usuario);
+    	
         model.addAttribute("titulo", "Hemos añadido este usuario a la base de datos");
-        model.addAttribute("usuario", usuario);
+     
         
-        return "resultado";
+        return "listar";
     }
     
 	
@@ -59,6 +64,9 @@ public class IndexController {
 		return "listar";
 		
 	}
+	
+	
+	
 	
 	
 	// Otra forma de generar el listado.

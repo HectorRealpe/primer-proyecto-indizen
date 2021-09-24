@@ -66,5 +66,53 @@ public class CRUD {
 		
 		return null;
 	}
+	
+	
+	public boolean existeusu(int usuario) {
+		boolean b = false;
+		if (listausu.contains(usuario)) {
+		b = true;
+		}
+
+		 return b;
+		}
+
+		 public String anadeusu(Usuario u) {
+		String a = "error";
+		u.setId(listausu.size() + 1);
+		if (!u.toString().isBlank()) {
+		listausu.add(u);
+		a = "usuario insertado con exito";
+		}
+
+		 return a;
+		}
+
+		 public String eliminausu(int id) {
+
+		 listausu.remove(id);
+		String a = "usuario borrado con exito";
+		if (new CRUD().existeusu(id)) {
+		a = "error en el borrado";
+		}
+		return a;
+		}
+
+		 public Usuario devuelveusu(int id) {
+		Usuario us = null;
+		if (new CRUD().existeusu(id)) {
+		us = null;
+		} else {
+		us = listausu.get(id);
+		}
+		return us;
+
+		 }
+
+		 public List<Usuario> getMapAll() {
+
+		 return listausu;
+
+		 }
 
 }
