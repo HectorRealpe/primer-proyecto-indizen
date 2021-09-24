@@ -2,12 +2,12 @@ package com.equipo.segundo.usuarios.controllers;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 import com.equipo.segundo.usuarios.models.CRUD;
 import com.equipo.segundo.usuarios.models.Usuario;
@@ -16,7 +16,10 @@ import com.equipo.segundo.usuarios.models.Usuario;
 //@RequestMapping("/usuarios")
 public class IndexController {
 	
-	List<Usuario> usuarios = new CRUD().creausuarios();
+	@Autowired
+	private CRUD dao;
+	
+	List<Usuario> usuarios = dao.creausuarios();
 
 	// Routing inicial y paso de datos del controlador a la vista para un HTML muy básico
 	@GetMapping({"/index","/", "/home"})

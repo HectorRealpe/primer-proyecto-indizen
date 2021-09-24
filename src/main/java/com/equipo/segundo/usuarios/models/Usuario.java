@@ -2,6 +2,12 @@ package com.equipo.segundo.usuarios.models;
 
 public class Usuario {
 	
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+
 	private int id;
 	private String nombre;
 	private String apellido;
