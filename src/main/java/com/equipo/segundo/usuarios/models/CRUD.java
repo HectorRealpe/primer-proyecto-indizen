@@ -1,15 +1,8 @@
 package com.equipo.segundo.usuarios.models;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -103,25 +96,27 @@ public class CRUD {
 
 		listausu.remove(id);
 		String a = "usuario borrado con exito";
-		 if (new CRUD().existeusu(id)) {
-			 a= "error en el borrado";
-		 }
+		if (new CRUD().existeusu(id)) {
+			a = "error en el borrado";
+		}
 		return a;
 	}
+
 	public Usuario devuelveusu(int id) {
-		Usuario us= null;
+		Usuario us = null;
 		if (new CRUD().existeusu(id)) {
-			us= null;
-		 }else{
-			us= listausu.get(id);
-		 }
+			us = null;
+		} else {
+			us = listausu.get(id);
+		}
 		return us;
-		
+
 	}
-	public List <Usuario> getMapAll(){
-		
+
+	public List<Usuario> getMapAll() {
+
 		return listausu;
-		
+
 	}
 
 }
