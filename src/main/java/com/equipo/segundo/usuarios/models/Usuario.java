@@ -116,10 +116,23 @@ public class Usuario {
 
 
 
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", nick=" + nick + ", sexo="
 				+ sexo + ", email=" + email + ", edad=" + edad + ", banco=" + banco + ", pelis=" + pelis + "]";
+	}
+
+
+
+	public String toFile() {
+		return id + "," + nombre + "," + apellido + "," + nick + ","
+				+ sexo + "," + email + "," + edad + "," + banco + "," + pelis;
 	}
 
 

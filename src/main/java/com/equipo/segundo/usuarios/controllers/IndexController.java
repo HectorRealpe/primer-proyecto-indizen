@@ -63,6 +63,7 @@ public class IndexController {
 		//Lista los usuarios que generamos en nuestra "base de datos"
 		List<Usuario> usuarios = new CRUD().creausuarios();
 		
+
 		model.addAttribute("titulo", "Listado de usuarios");
 		model.addAttribute("usuarios", usuarios);
 		
