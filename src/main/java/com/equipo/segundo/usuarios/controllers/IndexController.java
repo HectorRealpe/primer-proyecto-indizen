@@ -1,6 +1,5 @@
 package com.equipo.segundo.usuarios.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -16,11 +15,13 @@ import com.equipo.segundo.usuarios.models.Usuario;
 @Controller
 //@RequestMapping("/usuarios")
 public class IndexController {
+	
+	@AutoWired
+	private CRUD crud;
 
 	// Routing inicial y paso de datos del controlador a la vista para un HTML muy básico
 	@GetMapping({"/index","/", "/home"})
-	public String index(Model model) {
-		
+	public String index(Model model) {	
 		model.addAttribute("titulo", "Video Club");
 		model.addAttribute("welcome", "Bienvenido");
 		model.addAttribute("login", "Iniciar Sesion");
@@ -28,8 +29,6 @@ public class IndexController {
 		model.addAttribute("password", "Tu nombre");
 		model.addAttribute("question", "¿Aun no te has registrado?");
 		model.addAttribute("singIn", "Registrar");
-		
-		
 		return "index";
 		
 	}
@@ -46,12 +45,9 @@ public class IndexController {
         model.addAttribute("titulo", "Hemos añadido este usuario a la base de datos");
         model.addAttribute("usuario", usuario);
         
-        
         return "resultado";
     }
     
-    
-	
 	@PostMapping("/perfil")
 	public String perfil(Model model) {
 		
@@ -71,6 +67,7 @@ public class IndexController {
 		//Lista los usuarios que generamos en nuestra "base de datos"
 		List<Usuario> usuarios = new CRUD().creausuarios();
 		
+		CRUD.
 		
 		model.addAttribute("titulo", "Listado de usuarios");
 		model.addAttribute("usuarios", usuarios);

@@ -11,6 +11,14 @@ public class CRUD {
 	Usuario u;
 	int rd;
 	int rd2;
+	List<Usuario> listausu;
+	
+	
+	public List<Usuario> getListausu() {
+		return listausu;
+	}
+
+	
 	public List<Usuario> creausuarios () {
 		
 		//Creamos un fichero para hacer de "base de datos"
@@ -25,7 +33,7 @@ public class CRUD {
 		String[] apellidos = { "Gomez", "Guerrero", "Cardenas", "Cardiel", "Cardona", "Cardoso", "Cariaga", "Carillo",
 				"Carion", "Castiyo", "Castorena", "Castro", "Grande", "Grangenal", "Grano", "Grasia", "Griego",
 				"Grigalva" };
-		List<Usuario> listausu = new ArrayList<>();
+		listausu = new ArrayList<>();
 		for (int i = 0; i<10; i++) {
 			rd = new Random().nextInt(15);
 			rd2 = new Random().nextInt(15);
