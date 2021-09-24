@@ -17,6 +17,7 @@ public class CRUD {
 	Usuario u;
 	int rd;
 	int rd2;
+	private List<Usuario> listausu;
 
 	public List<Usuario> creausuarios() {
 
@@ -28,7 +29,7 @@ public class CRUD {
 		String[] apellidos = { "Gomez", "Guerrero", "Cardenas", "Cardiel", "Cardona", "Cardoso", "Cariaga", "Carillo",
 				"Carion", "Castiyo", "Castorena", "Castro", "Grande", "Grangenal", "Grano", "Grasia", "Griego",
 				"Grigalva" };
-		List<Usuario> listausu = new ArrayList<>();
+
 		for (int i = 0; i < 10; i++) {
 			rd = new Random().nextInt(15);
 			rd2 = new Random().nextInt(15);
@@ -44,7 +45,7 @@ public class CRUD {
 			listausu.add(new Usuario(i, nombres[rd], apellidos[rd2], nombres[rd] + rd * 2, sexo,
 					nombres[rd] + "@indizen.com", rd + 10, "IB1293476213746" + rd2 * 7, pelis));
 		}
-		listausu.add(new Usuario(20, "admin", "adminsuper", "hombre", "masculino", "admin@indizen.com", 20, "IBANFALSO",
+		listausu.add(new Usuario(11, "admin", "adminsuper", "hombre", "masculino", "admin@indizen.com", 20, "IBANFALSO",
 				false));
 
 		// Una vez creamos los usuarios, los metemos en un txt
@@ -61,7 +62,7 @@ public class CRUD {
 			}
 			// cierra el buffer intermedio
 			bfwriter.close();
-			
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
@@ -78,22 +79,49 @@ public class CRUD {
 		return listausu;
 	}
 
-	public Usuario devuelveusu(int usuario) {
-		try {
-			final BufferedReader reader = new BufferedReader(new FileReader("fichero.txt"));
-			String line = "";
-			while ((line = reader.readLine()) != null) {
-				if (line.indexOf(usuario) != -1) {
-					System.out.println("hola"+reader.readLine());
-				}
-			}
-			reader.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
+	public boolean existeusu(int usuario) {
+		boolean b = false;
+		if (listausu.contains(usuario)) {
+			b = true;
 		}
-		return u;
+
+		return b;
+	}
+
+	public String anadeusu(Usuario u) {
+		String a = "error";
+		u.setId(listausu.size() + 1);
+		if (!u.toString().isBlank()) {
+			listausu.add(u);
+			a = "usuario insertado con exito";
+		}
+
+		return a;
+	}
+
+	public String eliminausu(int id) {
+
+		listausu.remove(id);
+		String a = "usuario borrado con exito";
+		 if (new CRUD().existeusu(id)) {
+			 a= "error en el borrado";
+		 }
+		return a;
+	}
+	public Usuario devuelveusu(int id) {
+		Usuario us= null;
+		if (new CRUD().existeusu(id)) {
+			us= null;
+		 }else{
+			us= listausu.get(id);
+		 }
+		return us;
+		
+	}
+	public List <Usuario> getMapAll(){
+		
+		return listausu;
+		
 	}
 
 }

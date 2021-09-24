@@ -110,6 +110,12 @@ public class Usuario {
 
 
 
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", nick=" + nick + ", sexo="
