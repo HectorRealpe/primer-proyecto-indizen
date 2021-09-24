@@ -33,6 +33,13 @@ public class Usuario {
 
 
 
+	public Usuario(String nombre, String apellido) {
+		this.nombre = nombre;
+		this.apellido = apellido;
+	}
+
+
+
 	public Usuario() {
 		
 	}
