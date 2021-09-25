@@ -54,9 +54,10 @@ public class IndexController {
 	public String listar(Model model) {
 		//Lista los usuarios que generamos en nuestra "base de datos"
 		
+		List<Usuario> usuarios = this.dao.creausuarios();
 		
 		model.addAttribute("titulo", "Listado de usuarios");
-		model.addAttribute("usuarios", this.usuarios);
+		model.addAttribute("usuarios", usuarios);
 		
 		return "listar";
 		
