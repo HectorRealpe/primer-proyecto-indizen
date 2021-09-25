@@ -1,5 +1,6 @@
 package com.equipo.segundo.usuarios.controllers;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,12 +41,12 @@ public class IndexController {
     @PostMapping("/form")
     public String procesar(Usuario usuario, Model model) {
     	
-    	this.dao.anadeusu(usuario);
+    	
 
         model.addAttribute("titulo", "Hemos añadido este usuario a la base de datos");
         model.addAttribute("usuario", usuario);
         
-        return "listar";
+        return "resultado";
     }
     
 	
@@ -54,7 +55,7 @@ public class IndexController {
 		//Lista los usuarios que generamos en nuestra "base de datos"
 		
 		model.addAttribute("titulo", "Listado de usuarios");
-		model.addAttribute("usuarios", this.dao.getListausu());
+		model.addAttribute("usuarios", this.dao.creausuarios());
 		
 		return "listar";
 		
