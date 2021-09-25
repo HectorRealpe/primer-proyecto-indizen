@@ -50,8 +50,6 @@ public class Usuario implements Serializable {
 		this.pelis = pelis;
 	}
 	
-	
-
 	public Usuario(String nombre, String apellido, String nick, String sexo, String email, int edad, String banco) {
 		this.nombre = nombre;
 		this.apellido = apellido;
