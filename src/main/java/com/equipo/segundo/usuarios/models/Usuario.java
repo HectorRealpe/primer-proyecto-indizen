@@ -37,6 +37,9 @@ public class Usuario implements Serializable {
 	private boolean pelis = false;
 	
 	private static final long serialVersionUID = 1L;
+	
+	public Usuario() {
+	}
 
 	public Usuario(int id, String nombre, String apellido, String nick, String sexo, String email, int edad, String banco, boolean pelis) {
 		this.id = id;
@@ -61,22 +64,16 @@ public class Usuario implements Serializable {
 	}
 	
 	
-
-
-
-	public Usuario(String nombre, String apellido) {
-		this.nombre = nombre;
-		this.apellido = apellido;
-	}
-
-
-
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	
-	public void setId(int id) {
+
+	public void setId(long id) {
 		this.id = id;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	public String getNombre() {
@@ -147,16 +144,10 @@ public class Usuario implements Serializable {
 		this.pelis = pelis;
 	}
 
-
-
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", nick=" + nick + ", sexo="
 				+ sexo + ", email=" + email + ", edad=" + edad + ", banco=" + banco + ", pelis=" + pelis + "]";
 	}
-
-
-	
-
 
 }

@@ -4,10 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import javax.persistence.EntityManager;
+
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class CRUD implements InterfaceCRUD {
+	
+	private EntityManager em;
+	
 	Usuario u;
 	int rd;
 	int rd2;
@@ -88,7 +93,7 @@ public class CRUD implements InterfaceCRUD {
 		if (new CRUD().existeusu(usuario)) {
 			us = null;
 		} else {
-			us = listausu.get(usuario.getId());
+			us = listausu.get((int)usuario.getId());
 		}
 		return us;
 
