@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 
 import com.equipo.segundo.usuarios.models.CRUD;
+import com.equipo.segundo.usuarios.models.InterfaceCRUD;
 import com.equipo.segundo.usuarios.models.Usuario;
 
 @Controller
@@ -17,9 +18,7 @@ import com.equipo.segundo.usuarios.models.Usuario;
 public class IndexController {
 	
 	@Autowired
-	private CRUD dao;
-	
-	List<Usuario> usuarios = dao.creausuarios();
+	private InterfaceCRUD dao;
 
 	// Routing inicial y paso de datos del controlador a la vista para un HTML muy básico
 	@GetMapping({"/index","/", "/home"})

@@ -1,10 +1,12 @@
 package com.equipo.segundo.usuarios.models;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class CRUD implements InterfaceCRUD {
 	Usuario u;
 	int rd;
@@ -18,11 +20,7 @@ public class CRUD implements InterfaceCRUD {
 
 	@Override
 	public List<Usuario> creausuarios() {
-		
-		//Creamos un fichero para hacer de "base de datos"
-		String sFichero = "fichero.txt";
-		File fichero = new File(sFichero);
-		
+				
 		//Genero una lista de usuarios aleatoria (primera consulta)
 	
 		String[] nombres = { "Andrea", "David", "Baldomero", "Balduino", "Baldwin", "Baltasar", "Barry", "Bartolo",
@@ -52,56 +50,56 @@ public class CRUD implements InterfaceCRUD {
 	}
 	
 	@Override
-	public boolean existeusu(int usuario) {
+	public boolean existeusu(Usuario usuario) {
 		boolean b = false;
 		if (listausu.contains(usuario)) {
-		b = true;
+			b = true;
 		}
 
-		 return b;
-		}
+		return b;
+	}
 
 	@Override
 	public String anadeusu(Usuario u) {
 		String a = "error";
 		u.setId(listausu.size() + 1);
 		if (!u.toString().isBlank()) {
-		listausu.add(u);
-		a = "usuario insertado con exito";
+			listausu.add(u);
+			a = "usuario insertado con exito";
 		}
 
-		 return a;
+		return a;
 	}
 
 	@Override
-	public String eliminausu(int id) {
+	public String eliminausu(Usuario usuario) {
 
-		 listausu.remove(id);
+		listausu.remove(usuario);
 		String a = "usuario borrado con exito";
-		if (new CRUD().existeusu(id)) {
-		a = "error en el borrado";
-		}
+		if (new CRUD().existeusu(usuario)) {
+			a = "error en el borrado";
+			}
 		return a;
-		}
+	}
 
 	@Override
-	public Usuario devuelveusu(int id) {
+	public Usuario devuelveusu(Usuario usuario) {
 		Usuario us = null;
-		if (new CRUD().existeusu(id)) {
-		us = null;
+		if (new CRUD().existeusu(usuario)) {
+			us = null;
 		} else {
-		us = listausu.get(id);
+			us = listausu.get(usuario.getId());
 		}
 		return us;
 
-		 }
+	}
 	
 	@Override
 	public List<Usuario> getMapAll() {
 
-		 return listausu;
+		return listausu;
 
-		 }
+	}
 
 
 }

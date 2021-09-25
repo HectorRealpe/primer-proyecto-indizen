@@ -8,11 +8,13 @@ public interface InterfaceCRUD {
 	
 	public List<Usuario> creausuarios();
 	
-	public String anadeusu(Usuario u);
+	public boolean existeusu(Usuario usuario);
 	
-	public String eliminausu(int id);
+	public String anadeusu(Usuario usuario);
 	
-	public Usuario devuelveusu(int id);
+	public String eliminausu(Usuario usuario);
+	
+	public Usuario devuelveusu(Usuario usuario);
 	
 	public List<Usuario> getMapAll();
 	

@@ -37,21 +37,6 @@ public class Usuario {
 		this.setPelis(pelis);
 	}
 
-
-
-	public Usuario(String nombre, String apellido) {
-		this.nombre = nombre;
-		this.apellido = apellido;
-	}
-
-
-
-	public Usuario() {
-		
-	}
-
-
-
 	public int getId() {
 		return id;
 	}
