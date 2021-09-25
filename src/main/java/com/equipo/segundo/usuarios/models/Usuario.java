@@ -1,16 +1,42 @@
 package com.equipo.segundo.usuarios.models;
 
-public class Usuario {
+import java.io.Serializable;
 
-	private int id;
+import javax.persistence.*;
+
+@Entity
+@Table(name="nombre")
+public class Usuario implements Serializable {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	
+	@Column(name = "title")
 	private String nombre;
+	
+	@Column(name = "apellido")
 	private String apellido;
+	
+	@Column(name = "title")
 	private String nick;
+	
+	@Column(name = "sexo")
 	private String sexo;
+	
+	@Column(name = "email")
 	private String email;
+	
+	@Column(name = "edad")
 	private int edad;
+	
+	@Column(name = "banco")
 	private String banco;
+	
+	@Column(name = "pelis")
 	private boolean pelis = false;
+	
+	private static final long serialVersionUID = 1L;
 
 	public Usuario(int id, String nombre, String apellido, String nick, String sexo, String email, int edad, String banco, boolean pelis) {
 		this.id = id;
