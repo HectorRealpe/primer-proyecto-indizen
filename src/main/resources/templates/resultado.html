@@ -4,20 +4,13 @@
 <meta charset="UTF-8">
 <title th:text="${titulo}"></title>
 <link rel="stylesheet" type="text/css" th:href="@{/css/resultado.css}"></link>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 </head>
 <body>
     <h3 th:text="${titulo}"></h3>
  
    <ul>
-    	<li th:text="${usuario.id}"></li>
         <li th:text="${usuario.nombre}"></li>
         <li th:text="${usuario.apellido}"></li>
-        <li th:text="${usuario.nick}"></li>
-        <li th:text="${usuario.sexo}"></li>
-        <li th:text="${usuario.email}"></li>
-        <li th:text="${usuario.edad}"></li>
-        <li th:text="${usuario.banco}"></li>
     </ul>
 </body>
 </html>

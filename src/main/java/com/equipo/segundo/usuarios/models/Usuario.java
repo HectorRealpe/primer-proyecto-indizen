@@ -1,12 +1,6 @@
 package com.equipo.segundo.usuarios.models;
 
 public class Usuario {
-	
-	public void setId(int id) {
-		this.id = id;
-	}
-
-
 
 	private int id;
 	private String nombre;
@@ -16,16 +10,9 @@ public class Usuario {
 	private String email;
 	private int edad;
 	private String banco;
-	private boolean pelis;
+	private boolean pelis = false;
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-
-
-	public Usuario(int id, String nombre, String apellido, String nick, String sexo, String email, int edad,
-			String banco, boolean pelis) {
+	public Usuario(int id, String nombre, String apellido, String nick, String sexo, String email, int edad, String banco, boolean pelis) {
 		this.id = id;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -34,11 +21,31 @@ public class Usuario {
 		this.email = email;
 		this.edad = edad;
 		this.banco = banco;
-		this.setPelis(pelis);
+		this.pelis = pelis;
 	}
+	
+	
+
+	public Usuario(String nombre, String apellido, String nick, String sexo, String email, int edad, String banco) {
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.nick = nick;
+		this.sexo = sexo;
+		this.email = email;
+		this.edad = edad;
+		this.banco = banco;
+	}
+	
+	
+
+
 
 	public int getId() {
 		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getNombre() {
@@ -75,6 +82,10 @@ public class Usuario {
 	
 	public String getEmail() {
 		return email;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public int getEdad() {

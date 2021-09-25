@@ -11,7 +11,11 @@ public class CRUD implements InterfaceCRUD {
 	Usuario u;
 	int rd;
 	int rd2;
-	List<Usuario> listausu;
+	public List<Usuario> listausu;
+
+	CRUD() {
+		this.creausuarios();
+	}
 	
 	@Override
 	public List<Usuario> getListausu() {
@@ -52,7 +56,7 @@ public class CRUD implements InterfaceCRUD {
 	@Override
 	public boolean existeusu(Usuario usuario) {
 		boolean b = false;
-		if (listausu.contains(usuario)) {
+		if (this.listausu.contains(usuario)) {
 			b = true;
 		}
 
@@ -62,9 +66,9 @@ public class CRUD implements InterfaceCRUD {
 	@Override
 	public String anadeusu(Usuario u) {
 		String a = "error";
-		u.setId(listausu.size() + 1);
+		u.setId(this.listausu.size() + 1);
 		if (!u.toString().isBlank()) {
-			listausu.add(u);
+			this.listausu.add(u);
 			a = "usuario insertado con exito";
 		}
 
@@ -100,6 +104,28 @@ public class CRUD implements InterfaceCRUD {
 		return listausu;
 
 	}
+	
+	
+	// testeando el CRUD:
+	
+//	public static void main(String[] args) {
+//		
+//		CRUD crud = new CRUD();
+//		
+//		List<Usuario> usuarios;
+//		
+//		usuarios = crud.getListausu();
+//		
+//		System.out.println(usuarios);
+//		
+//		Usuario newUser = new Usuario(21, "prueba", "", "hombre", "masculino", "admin@indizen.com", 20, "IBANFALSO", false);
+//		
+//		crud.anadeusu(newUser);
+//		
+//		System.out.println(usuarios);
+//		
+//		
+//	}
 
 
 }
