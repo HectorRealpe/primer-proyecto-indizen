@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.equipo.segundo.usuarios.models.InterfaceCRUD;
+//import com.equipo.segundo.usuarios.models.InterfaceCRUD;
 import com.equipo.segundo.usuarios.models.Usuario;
 
 @CrossOrigin(origins="http://localhost:8081")
@@ -17,8 +17,8 @@ import com.equipo.segundo.usuarios.models.Usuario;
 @RequestMapping("/api")
 public class DBController {
 	
-	@Autowired
-	private InterfaceCRUD dao;
+//	@Autowired
+//	private InterfaceCRUD dao;
 	
 	@GetMapping("/tutorials")
 	public ResponseEntity<Usuario> getAllUsuarios(@RequestParam(required = false) String title) {

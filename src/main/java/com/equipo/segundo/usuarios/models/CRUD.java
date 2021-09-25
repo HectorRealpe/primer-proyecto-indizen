@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class CRUD implements InterfaceCRUD {
 	
-	private EntityManager em;
+//	private EntityManager em;
 	
 	Usuario u;
 	int rd;
