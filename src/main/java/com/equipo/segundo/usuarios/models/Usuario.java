@@ -41,7 +41,7 @@ public class Usuario implements Serializable {
 	public Usuario() {
 	}
 
-	public Usuario(int id, String nombre, String apellido, String nick, String sexo, String email, int edad, String banco, boolean pelis) {
+	public Usuario(long id, String nombre, String apellido, String nick, String sexo, String email, int edad, String banco, boolean pelis) {
 		this.id = id;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -132,13 +132,9 @@ public class Usuario implements Serializable {
 		this.banco = banco;
 	}
 
-
-
 	public boolean isPelis() {
 		return pelis;
 	}
-
-
 
 	public void setPelis(boolean pelis) {
 		this.pelis = pelis;
