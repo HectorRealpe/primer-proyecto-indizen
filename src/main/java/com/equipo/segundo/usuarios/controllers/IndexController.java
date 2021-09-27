@@ -57,8 +57,7 @@ public class IndexController {
 //		this.dao.creausuarios();
 		
 		model.addAttribute("titulo", "Listado de usuarios");
-//		model.addAttribute("usuarios", this.dao.getListausu());
-		model.addAttribute("usuarios", this.dao.getListausu());
+		model.addAttribute("usuarios", this.dao.getMapAll());
 		
 		return "listar";
 		
@@ -72,7 +71,7 @@ public class IndexController {
 		
 		
 		model.addAttribute("titulo", "Listado de usuarios Administrador");
-		model.addAttribute("usuarios", this.dao.getListausu());
+		model.addAttribute("usuarios", this.dao.getMapAll());
 		
 		return "listarAdmin";
 		

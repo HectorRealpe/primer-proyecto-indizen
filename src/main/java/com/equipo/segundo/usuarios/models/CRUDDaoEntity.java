@@ -19,28 +19,28 @@ public class CRUDDaoEntity implements InterfaceCRUD {
 
 	@Override
 	public String anadeusu(Usuario usuario) {
-		em.createQuery("insert into usuarios values (" + usuario.toQuery() + ")");
+		em.createQuery("insert into usuarios values (" + usuario.toQuery() + ");");
 		return null;
 	}
 
 	@Override
 	public String eliminausu(Usuario usuario) {
 		int id = (int) usuario.getId();
-		em.createQuery("delete * from usuarios where id='" + id + "'").getSingleResult();
+		em.createQuery("delete * from usuarios where id='" + id + "';").getSingleResult();
 		return null;
 	}
 
 	@Override
 	public Usuario devuelveusu(Usuario usuario) {
 		int id = (int) usuario.getId();
-		return (Usuario) em.createQuery("select * from usuarios where id='" + id + "'").getSingleResult();
+		return (Usuario) em.createQuery("select * from usuarios where id='" + id + "';").getSingleResult();
 
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Usuario> getMapAll() {
-		return em.createQuery("select * from usuarios").getResultList();
+		return em.createQuery("select * from usuarios;").getResultList();
 	}
 
 

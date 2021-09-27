@@ -34,10 +34,10 @@ public class DBController {
 			List<Usuario> usuarios = new ArrayList<Usuario>();
 
 			if (usuario == null)
-				dao.getListausu().forEach(usuarios::add);
+				dao.getMapAll().forEach(usuarios::add);
 			else {
 				dao.anadeusu(usuario);
-				dao.getListausu().forEach(usuarios::add);			
+				dao.getMapAll().forEach(usuarios::add);			
 			}
 			
 			if (usuarios.isEmpty()) {
