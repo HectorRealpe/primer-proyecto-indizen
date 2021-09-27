@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public class CRUD implements InterfaceCRUD {
+@Component("primerServicioCRUD")
+public class CRUDServicio implements InterfaceCRUD {
 	
 //	private EntityManager em;
 	
@@ -79,7 +80,7 @@ public class CRUD implements InterfaceCRUD {
 
 		listausu.remove(usuario);
 		String a = "usuario borrado con exito";
-		if (new CRUD().existeusu(usuario)) {
+		if (new CRUDServicio().existeusu(usuario)) {
 			a = "error en el borrado";
 			}
 		return a;
@@ -88,7 +89,7 @@ public class CRUD implements InterfaceCRUD {
 	@Override
 	public Usuario devuelveusu(Usuario usuario) {
 		Usuario us = null;
-		if (new CRUD().existeusu(usuario)) {
+		if (new CRUDServicio().existeusu(usuario)) {
 			us = null;
 		} else {
 			us = listausu.get((int)usuario.getId());
