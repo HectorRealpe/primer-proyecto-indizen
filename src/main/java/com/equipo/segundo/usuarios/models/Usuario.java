@@ -22,21 +22,6 @@ public class Usuario implements Serializable {
 	private int edad;
 	private String banco;
 	private boolean pelis;	
-	
-	
-	
-	public Usuario(long id, String nombre, String apellido, String nick, String sexo, String email, int edad,
-			String banco, boolean pelis) {
-		this.id = id;
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.nick = nick;
-		this.sexo = sexo;
-		this.email = email;
-		this.edad = edad;
-		this.banco = banco;
-		this.pelis = pelis;
-	}
 
 	public long getId() {
 		return id;
