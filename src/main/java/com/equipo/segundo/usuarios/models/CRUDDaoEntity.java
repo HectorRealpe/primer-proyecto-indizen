@@ -40,7 +40,8 @@ public class CRUDDaoEntity implements InterfaceCRUD {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Usuario> getMapAll() {
-		return em.createQuery("select * from usuarios;").getResultList();
+		//return em.createQuery("select * from usuarios;").getResultList();
+		 return em.createQuery("from Usuario").getResultList();
 	}
 
 

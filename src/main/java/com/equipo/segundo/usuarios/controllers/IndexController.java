@@ -85,13 +85,39 @@ public class IndexController {
 		return "listaAdmin";
 	}
 	
+	
+	
+	@GetMapping("/actualizarAdmin")
+    public String actualizarListarAdmi( Model model) {
+    	
+        return "actualizarAdmin";
+    }
+	
 	@PostMapping("/actualizarListarAdmin")
-	public String actualizarListarAdmin (Model model, Usuario usuario) {
+	public String actualizarListarAdmin (Model model) {
 		
 		//model.addAttribute("actualizar", this.dao.)
 		
-		return "listarAdmin";
+		return "actualizarAdmin";
 	}
+	
+	
+	
+	
+	
+	@GetMapping("/anadirAdmin")
+    public String anadirUsuari( Model model) {
+    	
+        return "anadirAdmin";
+    }
+	
+	
+	@PostMapping("/anadirAdmin")
+    public String anadirUsuario(Usuario usuario, Model model) {
+    	model.addAttribute("anadir", this.dao.anadeusu(usuario));
+        return "anadirAdmin";
+    }
+	
 	
 	// Otra forma de generar el listado.
 	

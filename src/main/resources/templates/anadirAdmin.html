@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Anadir Usuario</h1>
+
+<form th:action="@{/anadirAdmin}" th:object="${usuario}"
+		method="post">
+
+		<div>
+			<label for="id">Id</label> <input type="text" name="id" id="id"
+				value="${usuario.id}">
+
+		</div>
+		<div>
+			<label for="nombre">Nombre</label> <input type="text" name="nombre"
+				id="nombre">
+
+		</div>
+		<div>
+			<label for="apellido">Apellidos</label> <input type="text"
+				name="apellido" id="apellido">
+
+		</div>
+		<div>
+			<label for="nick">Nick</label> <input type="text" name="nick"
+				id="nick">
+
+		</div>
+		<div>
+			<label for="sexo">Sexo</label> <input type="text" name="sexo"
+				id="sexo">
+
+		</div>
+		<div>
+			<label for="email">Email</label> <input type="email" name="email"
+				id="email">
+
+		</div>
+		<div>
+			<label for="edad">Edad</label> <input type="text" name="edad"
+				id="edad">
+
+		</div>
+		<div>
+			<label for="banco">Numero Bancario</label> <input type="text"
+				name="banco" id="banco">
+
+		</div>
+
+		<div>
+			<div>
+				<input type="submit" value="Anadir">
+			</div>
+		</div>
+	</form>
+</body>
+</html>
