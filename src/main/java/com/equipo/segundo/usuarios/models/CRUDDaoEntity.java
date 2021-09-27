@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
+import org.hibernate.annotations.SQLInsert;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
@@ -15,47 +16,33 @@ public class CRUDDaoEntity implements InterfaceCRUD {
 
 	@PersistenceContext
 	private EntityManager em;
-	
-	@Override
-	public void creausuarios() {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
-	public boolean existeusu(Usuario usuario) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Usuario> getListausu() {
-		// TODO Auto-generated method stub
-		return em.createQuery("from Usuario").getResultList();
-	}
 
 	@Override
 	public String anadeusu(Usuario usuario) {
-		// TODO Auto-generated method stub
+		em.createQuery("insert into usuarios values (" + usuario.toQuery() + ")");
 		return null;
 	}
 
 	@Override
 	public String eliminausu(Usuario usuario) {
-		// TODO Auto-generated method stub
+		int id = (int) usuario.getId();
+		em.createQuery("delete * from usuarios where id='" + id + "'").getSingleResult();
 		return null;
 	}
 
 	@Override
 	public Usuario devuelveusu(Usuario usuario) {
-		// TODO Auto-generated method stub
-		return null;
+		int id = (int) usuario.getId();
+		return (Usuario) em.createQuery("select * from usuarios where id='" + id + "'").getSingleResult();
+
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Usuario> getMapAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return em.createQuery("select * from usuarios").getResultList();
 	}
+
+
 
 }
