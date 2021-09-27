@@ -1,0 +1,2 @@
+INSERT INTO usuarios (id, apellido, nick, sexo, email, edad, banco, pelis) VALUES(1, "Realpe", "helui", "masculino", "hl.realpe@indizen.com", 38, "BASD6464567", false);
+INSERT INTO usuarios (id, apellido, nick, sexo, email, edad, banco, pelis) VALUES(2, "Apellido2", "nickname", "femenino", "otro@indizen.com", 32, "BDG2131546", false);

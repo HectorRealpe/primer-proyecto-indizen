@@ -4,65 +4,24 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
-@Table(name="usuario")
+@Table(name="usuarios")
 public class Usuario implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(name = "title")
 	private String nombre;
-	
-	@Column(name = "apellido")
 	private String apellido;
-	
-	@Column(name = "title")
 	private String nick;
-	
-	@Column(name = "sexo")
 	private String sexo;
-	
-	@Column(name = "email")
 	private String email;
-	
-	@Column(name = "edad")
 	private int edad;
-	
-	@Column(name = "banco")
 	private String banco;
-	
-	@Column(name = "pelis")
-	private boolean pelis = false;
-	
-	private static final long serialVersionUID = 1L;
-	
-	public Usuario() {
-	}
-
-	public Usuario(long id, String nombre, String apellido, String nick, String sexo, String email, int edad, String banco, boolean pelis) {
-		this.id = id;
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.nick = nick;
-		this.sexo = sexo;
-		this.email = email;
-		this.edad = edad;
-		this.banco = banco;
-		this.pelis = pelis;
-	}
-	
-	public Usuario(String nombre, String apellido, String nick, String sexo, String email, int edad, String banco) {
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.nick = nick;
-		this.sexo = sexo;
-		this.email = email;
-		this.edad = edad;
-		this.banco = banco;
-	}
-	
+	private boolean pelis;	
 	
 	public long getId() {
 		return id;
@@ -70,10 +29,6 @@ public class Usuario implements Serializable {
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 	public String getNombre() {
@@ -139,11 +94,11 @@ public class Usuario implements Serializable {
 	public void setPelis(boolean pelis) {
 		this.pelis = pelis;
 	}
-
-	@Override
-	public String toString() {
-		return "Usuario [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", nick=" + nick + ", sexo="
-				+ sexo + ", email=" + email + ", edad=" + edad + ", banco=" + banco + ", pelis=" + pelis + "]";
+	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
+	
+	private static final long serialVersionUID = 1L;
 
 }
