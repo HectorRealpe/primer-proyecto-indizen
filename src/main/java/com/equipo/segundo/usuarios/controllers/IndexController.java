@@ -65,6 +65,35 @@ public class IndexController {
 	}
 	
 	
+	
+	@GetMapping("/listarAdmin")
+	public String listarAdmin(Model model) {
+		//Lista los usuarios que generamos en nuestra "base de datos"
+		
+		
+		model.addAttribute("titulo", "Listado de usuarios Administrador");
+		model.addAttribute("usuarios", this.dao.getListausu());
+		
+		return "listarAdmin";
+		
+	}
+	
+	@PostMapping("/listaAdmin")
+	public String borrarUsuario (Model model, Usuario usuario) {
+		
+		model.addAttribute("borrar", this.dao.eliminausu(usuario));
+		
+		return "listaAdmin";
+	}
+	
+	@PostMapping("/actualizarListarAdmin")
+	public String actualizarListarAdmin (Model model, Usuario usuario) {
+		
+		//model.addAttribute("actualizar", this.dao.)
+		
+		return "listarAdmin";
+	}
+	
 	// Otra forma de generar el listado.
 	
 }
