@@ -99,6 +99,11 @@ public class Usuario implements Serializable {
 		return serialVersionUID;
 	}
 	
+	public String toQuery() {
+		return apellido + "," + banco + "," + edad + "," + email + ","
+				+ nick + "," + nombre + "," + pelis + "," + sexo;
+	}
+
 	private static final long serialVersionUID = 1L;
 
 }
