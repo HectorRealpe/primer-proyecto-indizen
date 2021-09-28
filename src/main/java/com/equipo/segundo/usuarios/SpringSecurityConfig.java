@@ -29,12 +29,16 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 		        .withUser("hector")
 		        	.password("{noop}pass")
 		        		.roles("USER");
-        
 	}
+
+//	@Override
+//	protected void configure(HttpSecurity http) throws Exception {
+//		
+//		http.authorizeRequests().antMatchers("/").permitAll()
+//			.antMatchers("/listar/**").hasAnyRole("USER")
+//			.antMatchers("/listarAdmin/**").hasAnyRole("ADMIN")
+//			.anyRequest().authenticated();
+//	}
     
-//    protected void configure(HttpSecurity http) {
-//    	http.authorizeRequests()
-//    		.antMatchers(null)
-//    }
 	
 }
