@@ -55,11 +55,73 @@ public class IndexController {
 		//Lista los usuarios que generamos en nuestra "base de datos"
 		
 		model.addAttribute("titulo", "Listado de usuarios");
-		model.addAttribute("usuarios", this.dao.getListausu());
-		
+		model.addAttribute("usuarios", this.dao.getMapAll());		
 		return "listar";
 		
 	}
+	
+	
+	
+	@GetMapping("/listarAdmin")
+	public String listarAdmin(Model model) {
+		//Lista los usuarios que generamos en nuestra "base de datos"
+		
+		
+		model.addAttribute("titulo", "Listado de usuarios Administrador");
+		model.addAttribute("usuarios", this.dao.getMapAll());
+		
+		return "listarAdmin";
+		
+	}
+	
+	@PostMapping("/listaAdmin")
+	public String borrarUsuario (Model model, Usuario usuario) {
+		
+		model.addAttribute("borrar", this.dao.eliminausu(usuario));
+		
+		return "listaAdmin";
+	}
+	
+	
+	
+	@GetMapping("/actualizarAdmin")
+    public String actualizarListarAdmi( Model model) {
+    	
+        return "actualizarAdmin";
+    }
+	
+	@PostMapping("/actualizarListarAdmin")
+	public String actualizarListarAdmin (Model model) {
+		
+		//model.addAttribute("actualizar", this.dao.)
+		
+		return "listarAdmin";
+	}
+	
+	
+	@PostMapping("/mandarListarAdmin")
+	public String mandarListarAdmin (Model model, Usuario usuario) {
+		
+		model.addAttribute("usuario", usuario);
+		
+		return "actualizarAdmin";
+	}
+	
+	
+	
+	
+	@GetMapping("/anadirAdmin")
+    public String anadirUsuari( Model model) {
+    	
+        return "anadirAdmin";
+    }
+	
+	
+	@PostMapping("/anadirAdmin")
+    public String anadirUsuario(Usuario usuario, Model model) {
+    	model.addAttribute("anadir", this.dao.anadeusu(usuario));
+        return "listarAdmin";
+    }
 	
 	
 	// Otra forma de generar el listado.

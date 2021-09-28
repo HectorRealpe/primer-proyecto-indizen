@@ -31,8 +31,7 @@ public class DBController {
 	@GetMapping("/usuarios")
 	public ResponseEntity<List<Usuario>> getAllUsuarios() {
 		try {
-			List<Usuario> usuarios = new ArrayList<Usuario>();
-			
+			List<Usuario> usuarios = new ArrayList<Usuario>();	
 			if (usuarios.isEmpty()) {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			}
