@@ -29,16 +29,9 @@ public class DBController {
 	private InterfaceCRUD dao;
 	
 	@GetMapping("/usuarios")
-	public ResponseEntity<List<Usuario>> getAllUsuarios(@RequestParam(required = false) Usuario usuario) {
+	public ResponseEntity<List<Usuario>> getAllUsuarios() {
 		try {
 			List<Usuario> usuarios = new ArrayList<Usuario>();
-
-			if (usuario == null)
-				dao.getListausu().forEach(usuarios::add);
-			else {
-				dao.anadeusu(usuario);
-				dao.getListausu().forEach(usuarios::add);			
-			}
 			
 			if (usuarios.isEmpty()) {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);

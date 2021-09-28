@@ -30,7 +30,6 @@ public class CRUDDaoEntity implements InterfaceCRUD {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Usuario> getListausu() {
-		// TODO Auto-generated method stub
 		return em.createQuery("from Usuario").getResultList();
 	}
 
@@ -42,7 +41,7 @@ public class CRUDDaoEntity implements InterfaceCRUD {
 
 	@Override
 	public String eliminausu(Usuario usuario) {
-		// TODO Auto-generated method stub
+	
 		return null;
 	}
 
