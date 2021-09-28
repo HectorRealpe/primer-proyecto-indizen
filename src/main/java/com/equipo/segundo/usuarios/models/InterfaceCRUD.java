@@ -1,17 +1,10 @@
 package com.equipo.segundo.usuarios.models;
 
+
 import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface InterfaceCRUD {
+public interface InterfaceCRUD extends JpaRepository<Usuario, Long>{
 
-
-
-	public String anadeusu(Usuario usuario);
-
-	public String eliminausu(Usuario usuario);
-
-	public Usuario devuelveusu(Usuario usuario);
-
-	public List<Usuario> getMapAll();
-
+	List<Usuario> findByTitleContaining(String nombre);
 }

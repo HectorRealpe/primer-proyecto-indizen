@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.equipo.segundo.usuarios.models.InterfaceCRUD;
@@ -16,7 +15,7 @@ import com.equipo.segundo.usuarios.models.Usuario;
 public class IndexController {
 	
 	@Autowired
-	private InterfaceCRUD dao;
+	InterfaceCRUD dao;
 	
 
 	// Routing inicial y paso de datos del controlador a la vista para un HTML muy básico
@@ -58,7 +57,7 @@ public class IndexController {
 //		this.dao.creausuarios();
 		
 		model.addAttribute("titulo", "Listado de usuarios");
-		model.addAttribute("usuarios", this.dao.getMapAll());
+		model.addAttribute("usuarios", this.dao.findAll());
 		
 		return "listar";
 		
@@ -72,7 +71,7 @@ public class IndexController {
 		
 		
 		model.addAttribute("titulo", "Listado de usuarios Administrador");
-		model.addAttribute("usuarios", this.dao.getMapAll());
+		model.addAttribute("usuarios", this.dao.findAll());
 		
 		return "listarAdmin";
 		
@@ -81,7 +80,7 @@ public class IndexController {
 	@PostMapping("/listaAdmin")
 	public String borrarUsuario (Model model, Usuario usuario) {
 
-		this.dao.eliminausu(usuario);
+		this.dao.delete(usuario);
 		
 		return "listaAdmin";
 	}
@@ -103,19 +102,19 @@ public class IndexController {
 	}
 	
 	
-	@PostMapping("/mandarListarAdmin")
-	public String mandarListarAdmin (Model model, Usuario usuario) {
-		if(model.equals("borrar")) {
-			this.dao.eliminausu(usuario);
-			return "listarAdmin";
-		}else {
-			model.addAttribute("usuario", usuario);
-			return "actualizarAdmin";
-			
-		}
-		
-		
-	}
+//	@PostMapping("/mandarListarAdmin")
+//	public String mandarListarAdmin (Model model, Usuario usuario) {
+//		if(model.equals("borrar")) {
+//			this.dao.delete(usuario)
+//			return "listarAdmin";
+//		}else {
+//			model.addAttribute("usuario", usuario);
+//			return "actualizarAdmin";
+//			
+//		}
+//		
+//		
+//	}
 	
 	
 	
@@ -129,11 +128,8 @@ public class IndexController {
 	
 	@PostMapping("/anadirAdmin")
     public String anadirUsuario(Usuario usuario, Model model) {
-    	 this.dao.anadeusu(usuario);
+    	 this.dao.save(usuario);
         return "listarAdmin";
     }
-	
-	
-	// Otra forma de generar el listado.
 	
 }

@@ -4,24 +4,55 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
-import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name="usuarios")
 public class Usuario implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
+	@Column(name = "nombre")
 	private String nombre;
+	
+	@Column(name = "apellido")
 	private String apellido;
+	
+	@Column(name = "nick")
 	private String nick;
+	
+	@Column(name = "sexo")
 	private String sexo;
+	
+	@Column(name = "email")
 	private String email;
+	
+	@Column(name = "edad")
 	private int edad;
+	
+	@Column(name = "banco")
 	private String banco;
-	private boolean pelis;	
+	
+	@Column(name = "pelis")
+	private boolean pelis;
+	
+	public Usuario() {
+	}
+	
+	public Usuario(String nombre, String apellido, String nick, String sexo, String email, int edad, String banco,
+			boolean pelis) {
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.nick = nick;
+		this.sexo = sexo;
+		this.email = email;
+		this.edad = edad;
+		this.banco = banco;
+		this.pelis = pelis;
+	}
+
+
 
 	public long getId() {
 		return id;
@@ -99,11 +130,12 @@ public class Usuario implements Serializable {
 		return serialVersionUID;
 	}
 	
-	public String toQuery() {
-		return apellido + "," + banco + "," + edad + "," + email + ","
-				+ nick + "," + nombre + "," + pelis + "," + sexo;
-	}
-
 	private static final long serialVersionUID = 1L;
+
+	@Override
+	public String toString() {
+		return "Usuario [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", nick=" + nick + ", sexo="
+				+ sexo + ", email=" + email + ", edad=" + edad + ", banco=" + banco + ", pelis=" + pelis + "]";
+	}
 
 }

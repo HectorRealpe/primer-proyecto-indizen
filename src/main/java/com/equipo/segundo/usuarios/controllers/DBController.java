@@ -6,40 +6,31 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.equipo.segundo.usuarios.models.InterfaceCRUD;
-//import com.equipo.segundo.usuarios.models.InterfaceCRUD;
 import com.equipo.segundo.usuarios.models.Usuario;
 
-@CrossOrigin(origins="http://localhost:8081")
 @RestController
 @RequestMapping("/api")
 public class DBController {
 	
 	@Autowired
-	private InterfaceCRUD dao;
+	InterfaceCRUD dao;
 	
 	@GetMapping("/usuarios")
-	public ResponseEntity<List<Usuario>> getAllUsuarios(@RequestParam(required = false) Usuario usuario) {
+	public ResponseEntity<List<Usuario>> getAllUsuarios(@RequestParam(required = false) String nombre) {
 		try {
 			List<Usuario> usuarios = new ArrayList<Usuario>();
 
-			if (usuario == null)
-				dao.getMapAll().forEach(usuarios::add);
-			else {
-				dao.anadeusu(usuario);
-				dao.getMapAll().forEach(usuarios::add);			
-			}
-			
+			if (nombre == null)
+				dao.findAll().forEach(usuarios::add);
+			else
+				dao.findByTitleContaining(nombre).forEach(usuarios::add);
+
 			if (usuarios.isEmpty()) {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			}
@@ -50,15 +41,15 @@ public class DBController {
 		}
 	}
 
-	@PostMapping("/usuarios")
-	public ResponseEntity<Usuario> createUsuario(@RequestBody Usuario usuario) {
-		try {
-			dao.anadeusu(usuario);
-			return new ResponseEntity<>(usuario, HttpStatus.CREATED);
-		} catch (Exception e) {
-			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
+//	@PostMapping("/usuarios")
+//	public ResponseEntity<Usuario> createUsuario(@RequestBody Usuario usuario) {
+//		try {
+//			dao.anadeusu(usuario);
+//			return new ResponseEntity<>(usuario, HttpStatus.CREATED);
+//		} catch (Exception e) {
+//			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+//		}
+//	}
 	
 //	@GetMapping("/usuarios/{id}")
 //	public ResponseEntity<Usuario> getUsuarioById(@PathVariable("id") long id) {
