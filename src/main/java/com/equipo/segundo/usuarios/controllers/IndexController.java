@@ -98,9 +98,17 @@ public class IndexController {
 		
 		//model.addAttribute("actualizar", this.dao.)
 		
-		return "actualizarAdmin";
+		return "listarAdmin";
 	}
 	
+	
+	@PostMapping("/mandarListarAdmin")
+	public String mandarListarAdmin (Model model, Usuario usuario) {
+		
+		model.addAttribute("usuario", usuario);
+		
+		return "actualizarAdmin";
+	}
 	
 	
 	
@@ -115,7 +123,7 @@ public class IndexController {
 	@PostMapping("/anadirAdmin")
     public String anadirUsuario(Usuario usuario, Model model) {
     	model.addAttribute("anadir", this.dao.anadeusu(usuario));
-        return "anadirAdmin";
+        return "listarAdmin";
     }
 	
 	

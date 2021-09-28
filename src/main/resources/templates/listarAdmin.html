@@ -29,17 +29,20 @@
 
 		<tbody>
 			<tr th:each="usuario: ${usuarios}">
-				<form th:action="@{/listarAdmin}" th:object="${usuario}"
+				<form th:action="@{/mandarListarAdmin}" th:object="${usuario}"
 					method="post">
-				<td th:text="${usuario.id}">
-				<td th:text="${usuario.nombre}">
-				<td th:text="${usuario.apellido}">
-				<td th:text="${usuario.sexo}">
-				<td th:text="${usuario.email}">
-				<td th:text="${usuario.edad}">
-				<td th:text="${usuario.banco}">
-				<td th:text="${usuario.pelis}">
-				<td><input type="submit" value="Borrar"></td>
+					<form th:action="@{/listarAdmin}" th:object="${usuario}"
+						method="post">
+					<td th:text="${usuario.id}">
+					<td th:text="${usuario.nombre}">
+					<td th:text="${usuario.apellido}">
+					<td th:text="${usuario.sexo}">
+					<td th:text="${usuario.email}">
+					<td th:text="${usuario.edad}">
+					<td th:text="${usuario.banco}">
+					<td th:text="${usuario.pelis}">
+					<td><input type="submit" value="Borrar"></td>
+				</form>
 				<td><input type="submit" value="Actualizar"></td>
 				</form>
 			</tr>
@@ -50,9 +53,7 @@
 	</table>
 
 	<br>
-	<form action="@{/anadirAdmin}">
-	<input type="submit" value = "Anadir">
-	</form>
-	
+	<a href="/anadirAdmin"><input type="button" value="Anadir"></a>
+
 </body>
 </html>
