@@ -15,30 +15,33 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     	
         auth.inMemoryAuthentication()
 	        .withUser("admin")
-	        	.password("{noop}pass")
-	        		.roles("ADMIN", "USER")
+	        	.password("{noop}pass").roles("ADMIN", "USER")
 	        	.and()
 	            .withUser("alejandro")
-		        	.password("{noop}pass")
-		        		.roles("USER")
+		        	.password("{noop}pass").roles("USER")
 		        .and()
 		        .withUser("javier")
-		        	.password("{noop}pass")
-		        		.roles("USER")
+		        	.password("{noop}pass").roles("USER")
 		        .and()
 		        .withUser("hector")
-		        	.password("{noop}pass")
-		        		.roles("USER");
+		        	.password("{noop}pass").roles("USER");
 	}
 
-//	@Override
-//	protected void configure(HttpSecurity http) throws Exception {
-//		
-//		http.authorizeRequests().antMatchers("/").permitAll()
-//			.antMatchers("/listar/**").hasAnyRole("USER")
-//			.antMatchers("/listarAdmin/**").hasAnyRole("ADMIN")
-//			.anyRequest().authenticated();
-//	}
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		
+		http.authorizeRequests()
+			.antMatchers("/login", "/css/**", "/js/**", "/images/**","/form/**")
+				.permitAll()
+			.antMatchers("/listarAdmin/**")
+				.hasRole("ADMIN")
+			.antMatchers("/listar/**")
+				.hasAnyRole("USER", "ADMIN")
+			.and()
+ 				.formLogin()
+ 				.loginPage("/login");
+	}
     
+	
 	
 }
