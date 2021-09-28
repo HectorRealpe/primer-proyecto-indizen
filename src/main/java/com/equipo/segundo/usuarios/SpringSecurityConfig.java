@@ -2,6 +2,7 @@ package com.equipo.segundo.usuarios;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
@@ -17,8 +18,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 	        	.password("{noop}pass")
 	        		.roles("ADMIN", "USER")
 	        	.and()
-	            .withUser("{noop}pass")
-		        	.password("pass")
+	            .withUser("alejandro")
+		        	.password("{noop}pass")
 		        		.roles("USER")
 		        .and()
 		        .withUser("javier")
@@ -30,5 +31,10 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 		        		.roles("USER");
         
 	}
+    
+//    protected void configure(HttpSecurity http) {
+//    	http.authorizeRequests()
+//    		.antMatchers(null)
+//    }
 	
 }
