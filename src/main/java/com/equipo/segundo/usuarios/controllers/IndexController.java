@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.equipo.segundo.usuarios.models.InterfaceCRUD;
@@ -79,8 +80,8 @@ public class IndexController {
 	
 	@PostMapping("/listaAdmin")
 	public String borrarUsuario (Model model, Usuario usuario) {
-		
-		model.addAttribute("borrar", this.dao.eliminausu(usuario));
+
+		this.dao.eliminausu(usuario);
 		
 		return "listaAdmin";
 	}
@@ -96,7 +97,7 @@ public class IndexController {
 	@PostMapping("/actualizarListarAdmin")
 	public String actualizarListarAdmin (Model model) {
 		
-		//model.addAttribute("actualizar", this.dao.)
+		 //this.dao.
 		
 		return "listarAdmin";
 	}
@@ -104,10 +105,16 @@ public class IndexController {
 	
 	@PostMapping("/mandarListarAdmin")
 	public String mandarListarAdmin (Model model, Usuario usuario) {
+		if(model.equals("borrar")) {
+			this.dao.eliminausu(usuario);
+			return "listarAdmin";
+		}else {
+			model.addAttribute("usuario", usuario);
+			return "actualizarAdmin";
+			
+		}
 		
-		model.addAttribute("usuario", usuario);
 		
-		return "actualizarAdmin";
 	}
 	
 	
@@ -122,7 +129,7 @@ public class IndexController {
 	
 	@PostMapping("/anadirAdmin")
     public String anadirUsuario(Usuario usuario, Model model) {
-    	model.addAttribute("anadir", this.dao.anadeusu(usuario));
+    	 this.dao.anadeusu(usuario);
         return "listarAdmin";
     }
 	
