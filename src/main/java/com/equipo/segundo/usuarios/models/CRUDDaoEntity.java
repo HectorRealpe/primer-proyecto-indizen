@@ -29,10 +29,9 @@ public class CRUDDaoEntity implements InterfaceCRUD {
 	}
 
 	@Override
-	public String eliminausu(Usuario usuario) {
-		int id = (int) usuario.getId();
-		em.createQuery("delete * from usuarios where id='" + id + "';").getSingleResult();
-		return null;
+	@Transactional
+	public void eliminausu(long id) {
+		em.remove(findOne(id));
 	}
 
 	@Override
@@ -40,6 +39,12 @@ public class CRUDDaoEntity implements InterfaceCRUD {
 		int id = (int) usuario.getId();
 		return (Usuario) em.createQuery("select * from usuarios where id='" + id + "';").getSingleResult();
 
+	}
+
+	@Override
+	public Usuario findOne(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

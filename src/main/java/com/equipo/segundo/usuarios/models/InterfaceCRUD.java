@@ -8,8 +8,10 @@ public interface InterfaceCRUD {
 
 	public void anadeusu(Usuario usuario);
 
-	public String eliminausu(Usuario usuario);
+	public void eliminausu(long id);
 
 	public Usuario devuelveusu(Usuario usuario);
+	
+	public Usuario findOne(Long id);
 	
 }
