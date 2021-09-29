@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.equipo.segundo.usuarios.models.InterfaceCRUD;
 import com.equipo.segundo.usuarios.models.Usuario;
+import com.equipo.segundo.usuarios.models.UsuarioRepository;
 
 @Controller
 //@RequestMapping("/usuarios")
@@ -20,6 +21,9 @@ public class IndexController {
 	
 	@Autowired
 	private InterfaceCRUD dao;
+	
+	@Autowired
+	private UsuarioRepository userRepo;
 	
 
 	// Routing inicial y paso de datos del controlador a la vista para un HTML muy básico
@@ -61,7 +65,7 @@ public class IndexController {
 		
 		
 		model.addAttribute("titulo", "Listado de usuarios");
-		model.addAttribute("usuarios", this.dao.getMapAll());
+		model.addAttribute("usuarios", userRepo.findAll());
 		
 		return "listar";
 		
