@@ -39,13 +39,13 @@
 				<td th:text="${usuario.email}"name="email" id="email">
 				<td th:text="${usuario.edad}"name="edad" id="edad">
 				<td th:text="${usuario.banco}"name="banco" id="banco">
-				<td th:text="${usuario.pelis}"name="pelis" id="pelis"></td>
+				<td th:text="${usuario.pelis}"name="pelis" id="pelis">
 				
 				<input type="text" th:value="${usuario}">
 				
-				<td ><input id= "borrar" type="submit" value="Borrar"></td>
+				<td><input name= "borrar" type="submit" value="Borrar"></td>
 
-				<td><input  id="actualizar" type="submit" value="Actualizar"></td>
+				<td><input  name="actualizar" type="submit" value="Actualizar"></td>
 				</form>
 			</tr>
 

@@ -1,12 +1,15 @@
 package com.equipo.segundo.usuarios.controllers;
 
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.equipo.segundo.usuarios.models.InterfaceCRUD;
 import com.equipo.segundo.usuarios.models.Usuario;
@@ -50,12 +53,13 @@ public class IndexController {
         return "resultado";
     }
     
+    
+    //LISTAR USUARIOS
 	
 	@GetMapping("/listar")
 	public String listar(Model model) {
 		//Lista los usuarios que generamos en nuestra "base de datos"
 		
-//		this.dao.creausuarios();
 		
 		model.addAttribute("titulo", "Listado de usuarios");
 		model.addAttribute("usuarios", this.dao.getMapAll());
@@ -65,6 +69,8 @@ public class IndexController {
 	}
 	
 	
+	
+	// LISTAR USUARIOS EN ADMIN
 	
 	@GetMapping("/listarAdmin")
 	public String listarAdmin(Model model) {
@@ -78,15 +84,24 @@ public class IndexController {
 		
 	}
 	
-	@PostMapping("/listaAdmin")
-	public String borrarUsuario (Model model, Usuario usuario) {
-
-		this.dao.eliminausu(usuario);
+	
+	@PostMapping("/mandarListarAdmin")
+	public String mandarListarAdmin (HttpServletRequest req, Model model, Usuario usuario) {
 		
-		return "listaAdmin";
+		
+		if("Borrar".equals(req.getParameter("borrar"))) {
+			this.dao.eliminausu(usuario);
+			return "listarAdmin";
+		}else {
+			model.addAttribute("usuario", usuario);
+			return "actualizarAdmin";
+		}
+	
 	}
 	
 	
+	
+	//ACTUALIZAR USUARIO
 	
 	@GetMapping("/actualizarAdmin")
     public String actualizarListarAdmi( Model model) {
@@ -95,7 +110,7 @@ public class IndexController {
     }
 	
 	@PostMapping("/actualizarListarAdmin")
-	public String actualizarListarAdmin (Model model) {
+	public String actualizarListarAdmin (Model model, Usuario usuario) {
 		
 		 //this.dao.
 		
@@ -103,22 +118,8 @@ public class IndexController {
 	}
 	
 	
-	@PostMapping("/mandarListarAdmin")
-	public String mandarListarAdmin (Model model, Usuario usuario) {
-		if(model.equals("borrar")) {
-			this.dao.eliminausu(usuario);
-			return "listarAdmin";
-		}else {
-			model.addAttribute("usuario", usuario);
-			return "actualizarAdmin";
-			
-		}
-		
-		
-	}
 	
-	
-	
+	//ANADIR USUARIO
 	
 	@GetMapping("/anadirAdmin")
     public String anadirUsuari( Model model) {
