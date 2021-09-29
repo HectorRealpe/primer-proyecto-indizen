@@ -6,28 +6,32 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
-import org.hibernate.annotations.SQLInsert;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Primary
-@Component("segundoServicioCRUD")
+@Component
 public class CRUDDaoEntity implements InterfaceCRUD {
 
 	@PersistenceContext
 	private EntityManager em;
-
+	
+	@Transactional
 	@Override
-	public String anadeusu(Usuario usuario) {
-		em.createQuery("insert into usuarios values (" + usuario.toQuery() + ");");
-		return null;
+	public List<Usuario> getMapAll() {
+		 return em.createQuery("from Usuario").getResultList();
 	}
 
 	@Override
-	public String eliminausu(Usuario usuario) {
-		int id = (int) usuario.getId();
-		em.createQuery("delete * from usuarios where id='" + id + "';").getSingleResult();
-		return null;
+	@Transactional
+	public void anadeusu(Usuario usuario) {
+		em.merge(usuario);
+	}
+
+	@Override
+	@Transactional
+	public void eliminausu(long id) {
+		em.remove(findOne(id));
 	}
 
 	@Override
@@ -37,13 +41,11 @@ public class CRUDDaoEntity implements InterfaceCRUD {
 
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public List<Usuario> getMapAll() {
-		//return em.createQuery("select * from usuarios;").getResultList();
-		 return em.createQuery("from Usuario").getResultList();
+	public Usuario findOne(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
-
 
 
 }

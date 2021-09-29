@@ -90,7 +90,7 @@ public class IndexController {
 		
 		
 		if("Borrar".equals(req.getParameter("borrar"))) {
-			this.dao.eliminausu(usuario);
+			this.dao.eliminausu(usuario.getId());
 			return "listarAdmin";
 		}else {
 			model.addAttribute("usuario", usuario);
