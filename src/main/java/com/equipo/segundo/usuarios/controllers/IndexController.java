@@ -84,17 +84,10 @@ public class IndexController {
 		
 	}
 	
-<<<<<<< HEAD
-	@PostMapping("/listaAdmin")
-	public String borrarUsuario (Model model, Usuario usuario) {
-
-		this.dao.eliminausu(usuario.getId());
-=======
 	
 	@PostMapping("/mandarListarAdmin")
 	public String mandarListarAdmin (HttpServletRequest req, Model model, Usuario usuario) {
 		
->>>>>>> b10541f23ab2808ce9dbfff87f3748d9cb888f8d
 		
 		if("Borrar".equals(req.getParameter("borrar"))) {
 			this.dao.eliminausu(usuario.getId());
@@ -125,24 +118,7 @@ public class IndexController {
 	}
 	
 	
-<<<<<<< HEAD
-	@PostMapping("/mandarListarAdmin")
-	public String mandarListarAdmin (Model model, Usuario usuario) {
-		if(model.equals("borrar")) {
-			this.dao.eliminausu(usuario.getId());
-			return "listarAdmin";
-		}else {
-			model.addAttribute("usuario", usuario);
-			return "actualizarAdmin";
-			
-		}
-		
-		
-	}
-	
-	
-=======
->>>>>>> b10541f23ab2808ce9dbfff87f3748d9cb888f8d
+
 	
 	//ANADIR USUARIO
 	
