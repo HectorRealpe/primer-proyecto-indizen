@@ -1,2 +1,4 @@
-INSERT INTO usuarios (id, nombre, apellido, nick, sexo, email, edad, banco, pelis) VALUES (1, 'Héctor', 'Realpe', 'helui', 'masculino', 'hl.realpe@indizen.com', 38, 'BASD6464567', false);
-INSERT INTO usuarios (id, nombre, apellido, nick, sexo, email, edad, banco, pelis) VALUES (2, 'nombre2', 'apellido2', 'nickPrueba', 'femenino', 'prueba@indizen.com', 32, 'BASD6464567', false);
+INSERT INTO usuarios (id, nombre, apellido, password, enabled, nick, sexo, email, edad, banco, pelis) VALUES (1, 'Héctor', 'Realpe','$2a$10$O9wxmH/AeyZZzIS09Wp8YOEMvFnbRVJ8B4dmAMVSGloR62lj.yqXG',true, 'helui', 'masculino', 'hl.realpe@indizen.com', 38, 'BASD6464567', false);
+
+
+INSERT INTO authorities (user_id, authority) VALUES (1,'ROLE_ADMIN');

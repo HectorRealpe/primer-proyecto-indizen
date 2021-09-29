@@ -16,6 +16,10 @@ public class Usuario implements Serializable {
 	private String nombre;
 	private String apellido;
 	private String nick;
+	
+	private String password;
+	private Boolean enabled;
+	
 	private String sexo;
 	private String email;
 	private int edad;
@@ -124,6 +128,22 @@ public class Usuario implements Serializable {
 	public String toQuery() {
 		return apellido + "," + banco + "," + edad + "," + email + ","
 				+ nick + "," + nombre + "," + pelis + "," + sexo;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Boolean getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
 	}
 
 	private static final long serialVersionUID = 1L;

@@ -6,6 +6,6 @@ import com.equipo.segundo.usuarios.models.entity.Usuario;
 
 public interface InterfaceUsuario extends CrudRepository<Usuario, Long> {
 	
-//	public Usuario finByUsername(String username);
+	Usuario findByUsername(String username);
 
 }
