@@ -1,6 +1,7 @@
 package com.equipo.segundo.usuarios.models;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -21,6 +22,10 @@ public class Usuario implements Serializable {
 	private String banco;
 	private boolean pelis;
 	
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "user_id")
+	private List<Role> roles;
+
 	public Usuario() {
 	}
 
@@ -102,6 +107,14 @@ public class Usuario implements Serializable {
 
 	public void setPelis(boolean pelis) {
 		this.pelis = pelis;
+	}
+	
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
 	}
 	
 	public static long getSerialversionuid() {
