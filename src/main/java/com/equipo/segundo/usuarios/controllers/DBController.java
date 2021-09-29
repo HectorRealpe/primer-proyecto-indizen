@@ -2,6 +2,7 @@ package com.equipo.segundo.usuarios.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -69,17 +70,17 @@ public class DBController {
 		}
 	}
 	
-//	@GetMapping("/usuarios/{id}")
-//	public ResponseEntity<Usuario> getUsuarioById(@PathVariable("id") long id) {
-//		Optional<Usuario> usuarioData = dao.findById(id);
-//
-//		if (usuarioData.isPresent()) {
-//			return new ResponseEntity<>(usuarioData.get(), HttpStatus.OK);
-//		} else {
-//			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//		}
-//	}
+	@GetMapping("/usuarios/{id}")
+	public ResponseEntity<Usuario> getUsuarioById(@PathVariable("id") long id) {
+		Usuario usuarioData = dao.findOne(id);
 
+		if (usuarioData != null) {
+			return new ResponseEntity<>(usuarioData, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
 //	@PutMapping("/usuarios/{id}")
 //	public ResponseEntity<Usuario> updateUsuario(@PathVariable("id") long id, @RequestBody Usuario usuario) {
 //		Optional<Usuario> usuarioData = dao.findById(id);
@@ -94,17 +95,7 @@ public class DBController {
 //			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 //		}
 //	}
-//
-//	@DeleteMapping("/usuarios/{id}")
-//	public ResponseEntity<HttpStatus> deleteUsuario(@PathVariable("id") long id) {
-//		try {
-//			dao.deleteById(id);
-//			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//		} catch (Exception e) {
-//			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-//		}
-//	}
-
+	
 //	@DeleteMapping("/usuarios")
 //	public ResponseEntity<HttpStatus> deleteAllUsuarios() {
 //		try {
@@ -115,19 +106,6 @@ public class DBController {
 //		}
 //
 //	}
-//
-//	@GetMapping("/usuarios/published")
-//	public ResponseEntity<List<Usuario>> findByPublished() {
-//		try {
-//			List<Usuario> usuarios = dao.findByPublished(true);
-//
-//			if (usuarios.isEmpty()) {
-//				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//			}
-//			return new ResponseEntity<>(usuarios, HttpStatus.OK);
-//		} catch (Exception e) {
-//			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-//		}
-//	}	
+	
 
 }

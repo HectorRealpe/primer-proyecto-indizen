@@ -43,8 +43,7 @@ public class CRUDDaoEntity implements InterfaceCRUD {
 
 	@Override
 	public Usuario findOne(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return em.find(Usuario.class, id);
 	}
 
 

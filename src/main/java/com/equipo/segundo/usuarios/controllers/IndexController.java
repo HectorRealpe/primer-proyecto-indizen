@@ -81,7 +81,7 @@ public class IndexController {
 	@PostMapping("/listaAdmin")
 	public String borrarUsuario (Model model, Usuario usuario) {
 
-		this.dao.eliminausu(usuario);
+		this.dao.eliminausu(usuario.getId());
 		
 		return "listaAdmin";
 	}
@@ -106,7 +106,7 @@ public class IndexController {
 	@PostMapping("/mandarListarAdmin")
 	public String mandarListarAdmin (Model model, Usuario usuario) {
 		if(model.equals("borrar")) {
-			this.dao.eliminausu(usuario);
+			this.dao.eliminausu(usuario.getId());
 			return "listarAdmin";
 		}else {
 			model.addAttribute("usuario", usuario);

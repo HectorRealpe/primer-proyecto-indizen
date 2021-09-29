@@ -26,8 +26,7 @@ public class Usuario implements Serializable {
 	public Usuario() {
 	}
 
-	public Usuario(String nombre, String apellido, String nick, String sexo, String email, int edad, String banco,
-			boolean pelis) {
+	public Usuario(String nombre, String apellido, String nick, String sexo, String email, int edad, String banco, boolean pelis) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.nick = nick;
@@ -41,10 +40,6 @@ public class Usuario implements Serializable {
 
 	public long getId() {
 		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
 	}
 
 	public String getNombre() {
