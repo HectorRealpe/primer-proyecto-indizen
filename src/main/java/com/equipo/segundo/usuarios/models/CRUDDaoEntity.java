@@ -16,10 +16,11 @@ public class CRUDDaoEntity implements InterfaceCRUD {
 	@PersistenceContext
 	private EntityManager em;
 	
+	@SuppressWarnings("unchecked")
 	@Transactional
 	@Override
 	public List<Usuario> getMapAll() {
-		 return em.createQuery("from Usuario").getResultList();
+		 return (List<Usuario>) em.createQuery("from Usuario").getResultList();
 	}
 
 	@Override
@@ -30,20 +31,26 @@ public class CRUDDaoEntity implements InterfaceCRUD {
 
 	@Override
 	@Transactional
-	public void eliminausu(long id) {
-		em.remove(findOne(id));
+	public void eliminausu(Usuario usuario) {
+		em.remove(usuario);
 	}
 
 	@Override
-	public Usuario devuelveusu(Usuario usuario) {
-		int id = (int) usuario.getId();
-		return (Usuario) em.createQuery("select * from usuarios where id='" + id + "';").getSingleResult();
-
+	public Usuario findOne(long id) {
+		return em.find(null, id);
 	}
 
 	@Override
-	public Usuario findOne(Long id) {
-		return em.find(Usuario.class, id);
+	public void editausu(long id, Usuario usuario) {
+		Usuario currentUsuario = this.findOne(id);
+		currentUsuario.setNombre(usuario.getNombre());
+		currentUsuario.setApellido(usuario.getApellido());
+		currentUsuario.setNick(usuario.getNick());
+		currentUsuario.setEmail(usuario.getEmail());
+		currentUsuario.setEdad(usuario.getEdad());
+		currentUsuario.setBanco(usuario.getBanco());
+		currentUsuario.setPelis(usuario.isPelis());
+		
 	}
 
 

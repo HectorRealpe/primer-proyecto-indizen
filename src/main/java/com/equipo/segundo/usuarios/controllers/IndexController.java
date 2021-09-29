@@ -45,7 +45,6 @@ public class IndexController {
     @PostMapping("/form")
     public String procesar(Usuario usuario, Model model) {
     	
-    	
 
         model.addAttribute("titulo", "Hemos añadido este usuario a la base de datos");
         model.addAttribute("usuario", usuario);
@@ -90,7 +89,7 @@ public class IndexController {
 		
 		
 		if("Borrar".equals(req.getParameter("borrar"))) {
-			this.dao.eliminausu(usuario.getId());
+			this.dao.eliminausu(usuario);
 			return "listarAdmin";
 		}else {
 			model.addAttribute("usuario", usuario);

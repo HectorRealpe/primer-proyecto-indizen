@@ -4,8 +4,6 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
 @Entity
 @Table(name="usuarios")
 public class Usuario implements Serializable {
