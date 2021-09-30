@@ -76,7 +76,7 @@ public class IndexController {
 	public String listarAdmin(Model model) {
 		//Lista los usuarios que generamos en nuestra "base de datos"
 		
-		
+		//this.dao.getMapAll();
 		model.addAttribute("titulo", "Listado de usuarios Administrador");
 		model.addAttribute("usuarios", this.dao.getMapAll());
 		
@@ -131,8 +131,11 @@ public class IndexController {
 	
 	@PostMapping("/anadirAdmin")
     public String anadirUsuario(Usuario usuario, Model model) {
-    	 this.dao.anadeusu(usuario);
-        return "listarAdmin";
+    	
+			this.dao.anadeusu(usuario);
+			return "anadirAdmin";
+	
+       
     }
 	
 	

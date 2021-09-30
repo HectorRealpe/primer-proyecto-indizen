@@ -1,0 +1,31 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.btn-container{
+    margin-top: 5vh;    
+    text-align: center;
+}
+
+.container{
+    margin-top: 10px;
+    width: 80vw;
+}
+
+.btn-transparent{
+    background-color: transparent;
+    border: none;
+}
+
+.poster{
+    height: 20vh;
+    width: 20vw;
+    background-color: aliceblue;
+}
+
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
