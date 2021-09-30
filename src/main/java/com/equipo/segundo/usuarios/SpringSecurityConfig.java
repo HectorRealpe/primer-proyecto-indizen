@@ -30,7 +30,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 		.antMatchers("/listarAdmin/**").hasAnyRole("ADMIN")
 		.anyRequest().authenticated()
 		.and()
-		    .formLogin()
+		    .formLogin().loginPage("/login").permitAll()
 		.and()
 		.logout().permitAll();
 //		        .successHandler(successHandler)

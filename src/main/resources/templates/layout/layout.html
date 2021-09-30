@@ -67,6 +67,10 @@
 			Proyecto desarrollado para Indizen en un curso de formación Full Stack 
 			<br /> &copy; Septiembre-Octubre 2021<br />
 		</p>
+		<form id="logoutForm" th:action="@{/logout}" method="post">
+			<button class="dropdown-item" onclick="document.getElementById('logoutForm').submit();" type="submit">Sign Out</button>
+			<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+		</form>
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Bootstrap JS -->
 		<script th:src="@{/js/bootstrap.min.js}"></script>
