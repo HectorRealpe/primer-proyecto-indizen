@@ -23,8 +23,10 @@ import com.equipo.segundo.usuarios.models.Usuario;
 
 @CrossOrigin(origins="http://localhost:8081")
 @RestController
-@RequestMapping("/api")
+@RequestMapping(path = "/api", produces = "application/Json")
+
 public class DBController {
+	
 	
 	@Autowired
 	private InterfaceCRUD dao;
