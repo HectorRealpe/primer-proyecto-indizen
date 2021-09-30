@@ -7,8 +7,8 @@
 	
 	<div th:if="${usuarios.size() == 0}">¡no hay usuarios registrados en la lista!</div>
 	
-
-	<table id="tablauser" class="display" style="width: 100%">
+<div class="container">
+	<table id="tablauser" class="display" style="width: 100%" align="center">
 	<thead>
 				<tr>
 					<th scope="col">id</th>
@@ -26,7 +26,7 @@
 		
 	
 	</table>
-	
+	</div>
 	<footer th:replace="layout/layout :: footer"></footer>
 </body>
 </html>
