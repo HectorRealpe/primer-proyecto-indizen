@@ -73,6 +73,7 @@ public class UsuarioController {
 	@PutMapping("/editar/{id}")
 	public ResponseEntity<Usuario> updateTutorial(@PathVariable("id") long id, @RequestBody Usuario usuario) {
 		Optional<Usuario> usuarioData = userRepository.findById(id);
+		
 
 		if (usuarioData.isPresent()) {
 			Usuario _usuario = usuarioData.get();
