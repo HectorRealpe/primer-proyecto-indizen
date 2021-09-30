@@ -27,7 +27,7 @@ public class IndexController {
 	
 
 	// Routing inicial y paso de datos del controlador a la vista para un HTML muy básico
-	@GetMapping({"/index"})
+	@GetMapping({"/index","/", "/home"})
 	public String index(Model model) {	
 		model.addAttribute("titulo", "Video Club");
 		model.addAttribute("welcome", "Bienvenido");
@@ -59,7 +59,7 @@ public class IndexController {
     
     //LISTAR USUARIOS
 	
-	@GetMapping({"/listar", "/"})
+	@GetMapping("/listar")
 	public String listar(Model model) {
 		//Lista los usuarios que generamos en nuestra "base de datos"
 		
