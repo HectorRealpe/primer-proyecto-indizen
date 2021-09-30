@@ -1,4 +1,4 @@
-package com.equipo.segundo.usuarios.models;
+package com.equipo.segundo.usuarios.models.entity;
 
 import java.io.Serializable;
 

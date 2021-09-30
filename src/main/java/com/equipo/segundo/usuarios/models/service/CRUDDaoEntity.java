@@ -1,4 +1,4 @@
-package com.equipo.segundo.usuarios.models;
+package com.equipo.segundo.usuarios.models.service;
 
 import java.util.List;
 
@@ -8,6 +8,9 @@ import javax.transaction.Transactional;
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
+
+import com.equipo.segundo.usuarios.models.dao.InterfaceCRUD;
+import com.equipo.segundo.usuarios.models.entity.Usuario;
 
 @Primary
 @Component
