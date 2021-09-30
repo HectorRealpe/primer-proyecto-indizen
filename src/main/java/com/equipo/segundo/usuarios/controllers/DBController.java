@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.equipo.segundo.usuarios.controllers.exception.RecursoNoEncontrado;
-import com.equipo.segundo.usuarios.models.InterfaceCRUD;
-import com.equipo.segundo.usuarios.models.Usuario;
+import com.equipo.segundo.usuarios.models.dao.InterfaceCRUD;
+import com.equipo.segundo.usuarios.models.entity.Usuario;
 
 @CrossOrigin(origins= {"http://localhost:8081"})
 @RestController

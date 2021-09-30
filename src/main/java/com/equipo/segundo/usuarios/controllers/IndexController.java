@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.equipo.segundo.usuarios.models.InterfaceCRUD;
-import com.equipo.segundo.usuarios.models.Usuario;
+import com.equipo.segundo.usuarios.models.dao.InterfaceCRUD;
+import com.equipo.segundo.usuarios.models.entity.Usuario;
 
 @Controller
 //@RequestMapping("/usuarios")

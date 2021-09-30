@@ -1,6 +1,8 @@
-package com.equipo.segundo.usuarios.models;
+package com.equipo.segundo.usuarios.models.dao;
 
 import java.util.List;
+
+import com.equipo.segundo.usuarios.models.entity.Usuario;
 
 public interface InterfaceCRUD {
 	
