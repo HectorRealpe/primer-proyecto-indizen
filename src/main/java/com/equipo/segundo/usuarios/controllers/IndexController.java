@@ -12,10 +12,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.equipo.segundo.usuarios.models.dao.InterfaceCRUD;
+import com.equipo.segundo.usuarios.models.dao.UsuarioRepository;
 import com.equipo.segundo.usuarios.models.entity.Usuario;
-import com.equipo.segundo.usuarios.models.service.UsuarioRepository;
 
 @Controller
+
 //@RequestMapping("/usuarios")
 public class IndexController {
 	
@@ -79,7 +80,7 @@ public class IndexController {
 	public String listarAdmin(Model model) {
 		//Lista los usuarios que generamos en nuestra "base de datos"
 		
-		
+		//this.dao.getMapAll();
 		model.addAttribute("titulo", "Listado de usuarios Administrador");
 		model.addAttribute("usuarios", this.dao.getMapAll());
 		
@@ -93,7 +94,8 @@ public class IndexController {
 		
 		
 		if("Borrar".equals(req.getParameter("borrar"))) {
-			this.dao.eliminausu(usuario);
+			//this.dao.eliminausu(usuario);
+			this.userRepo.delete(usuario);
 			return "listarAdmin";
 		}else {
 			model.addAttribute("usuario", usuario);
@@ -135,7 +137,9 @@ public class IndexController {
 	@PostMapping("/anadirAdmin")
     public String anadirUsuario(Usuario usuario, Model model) {
     	 this.dao.anadeusu(usuario);
-        return "listarAdmin";
+			return "anadirAdmin";
+	
+       
     }
 	
 	

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 <head th:replace="layout/layout :: head"></head>
 <body>
@@ -9,52 +10,40 @@
 		en la lista!</div>
 
 
-	<table border=1 th:if="${usuarios.size()>0}">
-		<thead>
-			<tr>
-				<th>id</th>
-				<th>Nombre</th>
-				<th>Apellido</th>
-				<th>genero</th>
-				<th>correo</th>
-				<th>edad</th>
-				<th>Cuenta bancaria</th>
-				<th>peliculas alquiladas</th>
-
-			</tr>
-		</thead>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 
 
-		<tbody>
-			<tr th:each="usuario: ${usuarios}">
+<body>
+	<div class="container">
 
-				<form th:action="@{/mandarListarAdmin}" th:object="${usuario}"
-					 method="post">
-				<td th:text="${usuario.id}" name="id" id="id">
-				<td th:text="${usuario.nombre}"name="nombre" id="nombre">
-				<td th:text="${usuario.apellido}"name="apellido" id="apellido">
-				<td th:text="${usuario.sexo}"name="sexo" id="sexo">
-				<td th:text="${usuario.email}"name="email" id="email">
-				<td th:text="${usuario.edad}"name="edad" id="edad">
-				<td th:text="${usuario.banco}"name="banco" id="banco">
-				<td th:text="${usuario.pelis}"name="pelis" id="pelis">
-				
-				<input type="text" th:value="${usuario}">
-				
-				<td><input name= "borrar" type="submit" value="Borrar"></td>
+		<table id="tablaPersona" class="display" style="width: 100%">
+			<!--  table id="tablaPersona" border=1 th:if="${usuarios.size()>0}">-->
+			<thead>
+				<tr>
+					<th scope="col">id</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Apellido</th>
+					<th scope="col">nick</th>
+					<th scope="col">genero</th>
+					<th scope="col">correo</th>
+					<th scope="col">edad</th>
+					<th scope="col">Cuenta bancaria</th>
+					<th scope="col">peliculas alquiladas</th>
+					<th scope="col">Borrar</th>
+					<th scope="col">Actualizar</th>
 
-				<td><input  name="actualizar" type="submit" value="Actualizar"></td>
-				</form>
-			</tr>
+				</tr>
+			</thead>
 
-		</tbody>
+		</table>
 
-
-	</table>
-
+	</div>
 	<br>
 	<a href="/anadirAdmin"><input type="button" value="Anadir"></a>
-	
+
 	<footer th:replace="layout/layout :: footer"></footer>
 
 </body>
