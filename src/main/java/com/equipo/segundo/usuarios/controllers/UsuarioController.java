@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.equipo.segundo.usuarios.models.dao.UsuarioRepository;
 import com.equipo.segundo.usuarios.models.entity.Usuario;
-import com.equipo.segundo.usuarios.models.service.UsuarioRepository;
 
 @CrossOrigin(origins= {"http://localhost:8081"})
 @RestController

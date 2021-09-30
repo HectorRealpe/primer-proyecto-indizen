@@ -1,4 +1,4 @@
-package com.equipo.segundo.usuarios.models.service;
+package com.equipo.segundo.usuarios.models.dao;
 
 import java.util.List;
 
