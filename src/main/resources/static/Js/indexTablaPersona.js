@@ -16,23 +16,23 @@ $(document).ready(function(){
             {"data": "email"},
             {"data": "edad"},
             {"data": "banco"},
-            {"data": "pelis"}
-
-//{"defaultContent": "<button type='button' class='btn-transparent'><i class='fas fa-edit'></i></button>"},
-//{"defaultContent": "<button type='button' class='btn-transparent'><i class='fas fa-edit'></i></button>"}
-              ]
+            {"data": "pelis"},
+ {"defaultContent": "<button type='submit' class='btn-transparent'><i class='fas fa-edit'></i></button>"}
+ ,{"defaultContent": "<button type='submit' class='btn-transparent'><i class='fas fa-edit'></i></button>"}
+     ]
     });
 
 
-  /*  $('#movieTable tbody').on( 'click','button', function () {
+    $('#tablaPersona tbody').on( 'click','button', function () {
         let data = table.row($(this).parents('tr')).data();
         let n = Number(data.id)
-        window.location.replace("http://localhost:8080/movies/m?sent="+n)
+       alert(n);
 
     } );
 
     $("#peopleAll").click(function (){
-        window.open("http://localhost:8080/people")
-    })*/
+   let data = table.row($(this).parents('tr')).data();
+        let n = Number(data.id)
+       alert(n);    })
 
 });
