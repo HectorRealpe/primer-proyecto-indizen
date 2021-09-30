@@ -11,7 +11,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class LoginController {
 
-	@GetMapping("/login")
+	@GetMapping({"/login", "/"})
 	public String login(Model model, Principal principal, RedirectAttributes flash) {
 		
 		if(principal != null) {
