@@ -37,6 +37,11 @@ public class CRUDDaoEntity implements InterfaceCRUD {
 	public void eliminausu(Usuario usuario) {
 		em.remove(usuario);
 	}
+	@Override
+	@Transactional
+	public void eliminausu(int usuario) {
+		em.remove(usuario);
+	}
 
 	@Override
 	public Usuario findOne(long id) {

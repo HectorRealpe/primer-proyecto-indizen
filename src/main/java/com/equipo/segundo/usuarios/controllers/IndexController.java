@@ -16,6 +16,7 @@ import com.equipo.segundo.usuarios.models.dao.UsuarioRepository;
 import com.equipo.segundo.usuarios.models.entity.Usuario;
 
 @Controller
+
 //@RequestMapping("/usuarios")
 public class IndexController {
 	
@@ -93,7 +94,8 @@ public class IndexController {
 		
 		
 		if("Borrar".equals(req.getParameter("borrar"))) {
-			this.dao.eliminausu(usuario);
+			//this.dao.eliminausu(usuario);
+			this.userRepo.delete(usuario);
 			return "listarAdmin";
 		}else {
 			model.addAttribute("usuario", usuario);
@@ -134,8 +136,7 @@ public class IndexController {
 	
 	@PostMapping("/anadirAdmin")
     public String anadirUsuario(Usuario usuario, Model model) {
-    	
-			this.dao.anadeusu(usuario);
+    	 this.dao.anadeusu(usuario);
 			return "anadirAdmin";
 	
        

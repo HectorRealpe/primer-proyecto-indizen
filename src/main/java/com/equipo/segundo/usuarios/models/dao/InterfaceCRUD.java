@@ -15,6 +15,8 @@ public interface InterfaceCRUD {
 	public Usuario findOne(long id);
 	
 	public void editausu(long id, Usuario usuario);
+
+	void eliminausu(int usuario);
 	
 	
 }

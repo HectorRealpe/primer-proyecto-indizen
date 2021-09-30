@@ -93,6 +93,7 @@ public class UsuarioController {
 	@PostMapping("/borrar")
 	public ResponseEntity<HttpStatus> deleteUsuario(@RequestBody Usuario usuario) {
 		try {
+			
 			userRepository.delete(usuario);
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		} catch (Exception e) {
