@@ -48,6 +48,7 @@ public class IndexController {
 		
 	}
 	
+	
 	@GetMapping("/form")
     public String form(Model model) {
         model.addAttribute("titulo", "Formulario usuarios");
@@ -152,22 +153,22 @@ public class IndexController {
 	
 	// COMPROBANDO LA SEGURIDAD DESDE EL CONTROLADOR
 	
-	private boolean hasRole(String role) {
-		SecurityContext context = SecurityContextHolder.getContext();
-		
-		if(context == null) {
-			return false;
-		}
-		
-		Authentication auth = context.getAuthentication();
-		
-		if(auth == null) {
-			return false;
-		}
-		
-		Collection<? extends GrantedAuthority> authorities = auth.getAuthorities();
-		
-		return authorities.contains(new SimpleGrantedAuthority(role));
-	}
+//	private boolean hasRole(String role) {
+//		SecurityContext context = SecurityContextHolder.getContext();
+//		
+//		if(context == null) {
+//			return false;
+//		}
+//		
+//		Authentication auth = context.getAuthentication();
+//		
+//		if(auth == null) {
+//			return false;
+//		}
+//		
+//		Collection<? extends GrantedAuthority> authorities = auth.getAuthorities();
+//		
+//		return authorities.contains(new SimpleGrantedAuthority(role));
+//	}
 	
 }
