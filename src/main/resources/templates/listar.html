@@ -8,32 +8,22 @@
 	<div th:if="${usuarios.size() == 0}">¡no hay usuarios registrados en la lista!</div>
 	
 
-	<table border=1 th:if="${usuarios.size()>0}">
-		<thead>
-			<tr>
-				<th>id</th>
-				<th>Nombre</th>
-				<th>Apellido</th>
-				<th>genero</th>
-				<th>correo</th>
-				<th>edad</th>
-				<th>Cuenta bancaria</th>
-				<th>peliculas alquiladas</th>
-				
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="usuario: ${usuarios}">
-				<td th:text="${usuario.id}">
-				<td th:text="${usuario.nombre}">
-				<td th:text="${usuario.apellido}">
-				<td th:text="${usuario.sexo}">
-				<td th:text="${usuario.email}">
-				<td th:text="${usuario.edad}">
-				<td th:text="${usuario.banco}">	
-				<td th:text="${usuario.pelis}">		
-			</tr>		
-		</tbody>
+	<table id="tablauser" class="display" style="width: 100%">
+	<thead>
+				<tr>
+					<th scope="col">id</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Apellido</th>
+					<th scope="col">nick</th>
+					<th scope="col">genero</th>
+					<th scope="col">correo</th>
+					<th scope="col">edad</th>
+					<th scope="col">Cuenta bancaria</th>
+					<th scope="col">peliculas alquiladas</th>
+					
+				</tr>
+			</thead>
+		
 	
 	</table>
 	
