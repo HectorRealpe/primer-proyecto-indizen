@@ -1,5 +1,7 @@
 package com.equipo.segundo.usuarios;
 
+import javax.activation.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -18,6 +20,9 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 
 	@Autowired
 	private LoginSuccessHandler successHandler;
+	
+//	@Autowired 
+//	private DataSource dataSource;
 	
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
@@ -43,10 +48,9 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 	}
 
 	@Autowired
-	public void configurerGlobal(AuthenticationManagerBuilder build) throws Exception
-	{
+	public void configurerGlobal(AuthenticationManagerBuilder build) throws Exception {
 		
-		PasswordEncoder encoder = this.passwordEncoder;
+		PasswordEncoder encoder = passwordEncoder;
 		UserBuilder users = User.builder().passwordEncoder(encoder::encode);
 		
 		build.inMemoryAuthentication()

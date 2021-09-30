@@ -1,12 +1,13 @@
 package com.equipo.segundo.usuarios;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
-public class PrimerProyectoIndizenApplication {
+public class PrimerProyectoIndizenApplication implements CommandLineRunner {
 	
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
@@ -14,16 +15,18 @@ public class PrimerProyectoIndizenApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(PrimerProyectoIndizenApplication.class, args);
 	}
-	
-	
-	public void run(String... args) throws Exception {
 
+	@Override
+	public void run(String... args) throws Exception {
+		// TODO Auto-generated method stub
 		String password = "1234";
 		
 		for(int i=0; i>2; i++) {
 			String bcryptPassword = passwordEncoder.encode(password);
 			System.out.println(bcryptPassword);
 		}
+		
 	}
+	
 
 }
