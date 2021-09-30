@@ -28,9 +28,11 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 		.antMatchers("/anadirAdmin/**").hasAnyRole("ADMIN")
 		.antMatchers("/actualizarAdmin/**").hasAnyRole("ADMIN")
 		.antMatchers("/listarAdmin/**").hasAnyRole("ADMIN")
-		.anyRequest().authenticated();
-//		.and()
-//		    .formLogin()
+		.anyRequest().authenticated()
+		.and()
+		    .formLogin()
+		.and()
+		.logout().permitAll();
 //		        .successHandler(successHandler)
 //		        .loginPage("/login")
 //		    .permitAll()
@@ -50,6 +52,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 		
 		build.inMemoryAuthentication()
 		.withUser(users.username("admin").password("12345").roles("ADMIN", "USER"))
-		.withUser(users.username("hector").password("12345").roles("USER"));
+		.withUser(users.username("hector").password("12345").roles("USER"))
+		.withUser(users.username("javier").password("12345").roles("USER"))
+		.withUser(users.username("alejandro").password("12345").roles("USER"));
 	}
 }

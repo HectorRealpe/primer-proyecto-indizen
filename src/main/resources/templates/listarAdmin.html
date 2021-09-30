@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
+<head th:replace="layout/layout :: head"></head>
 <body>
+	<header th:replace="layout/layout :: header"></header>
 	<h1 th:text="${titulo}"></h1>
 
-	<div th:if="${usuarios.size() == 0}">¡no hay usuarios registrados
+	<div th:if="${usuarios.size() == 0}">Â¡no hay usuarios registrados
 		en la lista!</div>
 
 
@@ -56,6 +54,8 @@
 
 	<br>
 	<a href="/anadirAdmin"><input type="button" value="Anadir"></a>
+	
+	<footer th:replace="layout/layout :: footer"></footer>
 
 </body>
 </html>
