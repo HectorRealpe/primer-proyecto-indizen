@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.equipo.segundo.usuarios.models.InterfaceCRUD;
-import com.equipo.segundo.usuarios.models.Usuario;
+import com.equipo.segundo.usuarios.models.dao.InterfaceCRUD;
+import com.equipo.segundo.usuarios.models.dao.UsuarioRepository;
+import com.equipo.segundo.usuarios.models.entity.Usuario;
 
 @Controller
 //@RequestMapping("/usuarios")
@@ -20,6 +21,9 @@ public class IndexController {
 	
 	@Autowired
 	private InterfaceCRUD dao;
+	
+	@Autowired
+	private UsuarioRepository userRepo;
 	
 
 	// Routing inicial y paso de datos del controlador a la vista para un HTML muy básico
@@ -45,7 +49,6 @@ public class IndexController {
     @PostMapping("/form")
     public String procesar(Usuario usuario, Model model) {
     	
-    	
 
         model.addAttribute("titulo", "Hemos añadido este usuario a la base de datos");
         model.addAttribute("usuario", usuario);
@@ -62,7 +65,7 @@ public class IndexController {
 		
 		
 		model.addAttribute("titulo", "Listado de usuarios");
-		model.addAttribute("usuarios", this.dao.getMapAll());
+		model.addAttribute("usuarios", userRepo.findAll());
 		
 		return "listar";
 		
@@ -90,7 +93,7 @@ public class IndexController {
 		
 		
 		if("Borrar".equals(req.getParameter("borrar"))) {
-			this.dao.eliminausu(usuario.getId());
+			this.dao.eliminausu(usuario);
 			return "listarAdmin";
 		}else {
 			model.addAttribute("usuario", usuario);

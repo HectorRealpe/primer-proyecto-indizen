@@ -1,10 +1,8 @@
-package com.equipo.segundo.usuarios.models;
+package com.equipo.segundo.usuarios.models.entity;
 
 import java.io.Serializable;
 
 import javax.persistence.*;
-
-import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name="usuarios")
