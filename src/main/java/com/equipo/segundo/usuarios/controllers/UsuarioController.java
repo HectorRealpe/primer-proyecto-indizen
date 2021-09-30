@@ -62,9 +62,8 @@ public class UsuarioController {
 	@PostMapping("/usuarios")
 	public ResponseEntity<Usuario> createUsuario(@RequestBody Usuario usuario) {
 		try {
-			Usuario _usuario = userRepository
-					.save(usuario);
-			return new ResponseEntity<>(_usuario, HttpStatus.CREATED);
+			Usuario usu = userRepository.save(usuario);
+			return new ResponseEntity<>(usu, HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}

@@ -17,8 +17,8 @@ $(document).ready(function() {
 			{ "data": "edad" },
 			{ "data": "banco" },
 			{ "data": "pelis" },
+			{ "defaultContent": "<button type='submit' class='btn-transparent'><i class='fas fa-edit'></i></button>" }, 
 			{ "defaultContent": "<button type='submit' class='btn-transparent'><i class='fas fa-edit'></i></button>" }
-			, { "defaultContent": "<button type='submit' class='btn-transparent'><i class='fas fa-edit'></i></button>" }
 		]
 	});
 
@@ -26,7 +26,7 @@ $(document).ready(function() {
 	$('#tablaPersona tbody').on('click', 'button', function() {
 		let data = table.row($(this).parents('tr')).data();
 		let n = Number(data.id)
-		alert(n);
+	
 		var objeto = {
 			id: data.id,
 			nombre: data.nombre,
@@ -39,7 +39,7 @@ $(document).ready(function() {
 			pelis: data.pelis
 		};
 		var json = JSON.stringify(objeto);
-		alert(json);
+	
 
 		$.ajax(
 			{
