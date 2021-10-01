@@ -7,17 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.equipo.segundo.usuarios.models.dao.InterfaceCRUD;
 import com.equipo.segundo.usuarios.models.dao.UsuarioRepository;
@@ -32,38 +25,8 @@ public class IndexController {
 	@Autowired
 	private UsuarioRepository userRepo;
 
-	// Routing inicial y paso de datos del controlador a la vista para un HTML muy básico
-	@GetMapping({"/index","/", "/home"})
-	public String index(Model model) {	
-		model.addAttribute("titulo", "Video Club");
-		model.addAttribute("welcome", "Bienvenido");
-		model.addAttribute("login", "Iniciar Sesion");
-		model.addAttribute("email", "Tu id");
-		model.addAttribute("password", "Tu nombre");
-		model.addAttribute("question", "¿Aun no te has registrado?");
-		model.addAttribute("singIn", "Registrar");
-		return "index";
-		
-	}
 	
-	
-	@GetMapping("/form")
-    public String form(Model model) {
-        model.addAttribute("titulo", "Formulario usuarios");
-        return "formulario";
-    }
-    
-    @PostMapping("/form")
-    public String procesar(Usuario usuario, Model model) {
-    	
-
-        model.addAttribute("titulo", "Hemos añadido este usuario a la base de datos");
-        model.addAttribute("usuario", usuario);
-        
-        return "resultado";
-    }
-    
-    
+   
     //LISTAR USUARIOS
 	@Secured({"ROLE_USER"})
 	@GetMapping("/listar")
@@ -147,25 +110,5 @@ public class IndexController {
        
     }
 	
-	
-	// COMPROBANDO LA SEGURIDAD DESDE EL CONTROLADOR
-	
-//	private boolean hasRole(String role) {
-//		SecurityContext context = SecurityContextHolder.getContext();
-//		
-//		if(context == null) {
-//			return false;
-//		}
-//		
-//		Authentication auth = context.getAuthentication();
-//		
-//		if(auth == null) {
-//			return false;
-//		}
-//		
-//		Collection<? extends GrantedAuthority> authorities = auth.getAuthorities();
-//		
-//		return authorities.contains(new SimpleGrantedAuthority(role));
-//	}
 	
 }
