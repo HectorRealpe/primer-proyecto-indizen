@@ -17,7 +17,7 @@ $(document).ready(function() {
 			{ "data": "edad" },
 			{ "data": "banco" },
 			{ "data": "pelis" },
-			{ "defaultContent": "<button type='submit' id='borrar' class='btn-transparent'><i class='fas fa-edit'></i></button>" }, 
+			{ "defaultContent": "<button type='submit' id='borrar' class='btn-transparent'><i class='fas fa-edit'></i></button>" },
 			{ "defaultContent": "<button type='submit' class='btn-transparent'><i class='fas fa-edit'></i></button>" }
 		]
 	});
@@ -26,7 +26,7 @@ $(document).ready(function() {
 	$('#tablaPersona tbody').on('click', 'button', function() {
 		let data = table.row($(this).parents('tr')).data();
 		let n = Number(data.id)
-	
+
 		var objeto = {
 			id: data.id,
 			nombre: data.nombre,
@@ -38,22 +38,22 @@ $(document).ready(function() {
 			banco: data.banco,
 			pelis: data.pelis
 		};
-		if (this.id=="borrar"){
-		var json = JSON.stringify(objeto);
-		$.ajax(
-			{
-				url: "http://localhost:8080/api/borrar",
-				type: "POST",
-				success: function() {
-					 location.reload();
-				},
-				data: json,
-				contentType: "application/json"
-			});
+		if (this.id == "borrar") {
+			var json = JSON.stringify(objeto);
+			$.ajax(
+				{
+					url: "http://localhost:8080/api/borrar",
+					type: "POST",
+					success: function() {
+						location.reload();
+					},
+					data: json,
+					contentType: "application/json"
+				});
 
-	
-		}else{
-			alert("actualizausu");
+
+		} else {
+		
 		}
 	});
 });
