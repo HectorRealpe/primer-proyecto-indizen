@@ -41,20 +41,73 @@
 
 	</div>
 	<br>
-	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel">Modal header</h3>
+	 <div id="myModal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Actualizando usuarios</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+             <form th:action="@{/anadirAdmin}" th:object="${usuario}" method="post">
+			<div class="form-row">
+				<div class="form-group col-md-3">
+					<label for="nombre">Nombre</label> <input class="form-control" type="text" name="nombre"
+						id="nombre">
+				</div>
+				<div class="form-group col-md-3">
+					<label for="apellido">Apellidos</label> <input  class="form-control" type="text"
+						name="apellido" id="apellido">
+				</div>
+			</div>
+			
+			
+			<div class="form-row">
+				<div class="form-group col-md-3">
+					<label for="nick">Nick</label> <input class="form-control" type="text" name="nick"
+						id="nick">
+				</div>
+				<!-- div class="form-group col-md-6">
+					<label for="sexo">Sexo</label> <select th:field="*{sexo}">
+						<option th:value="'M'" th:text="Male"></option>
+						<option th:value="'F'" th:text="Female"></option>
+					</select>
+				</div>
+				<div class="form-row">-->
+					<div class="form-group col-md-3">
+						<label for="sexo">Sexo</label> <input  class="form-control" type="text" name="sexo"
+							id="sexo">
+					</div>
+
+				</div>
+
+				<div class="form-row">
+
+					<div class="form-group col-md-3">
+						<label for="email">Email</label> <input class="form-control" type="email" name="email"
+							id="email">
+					</div>
+					<div class="form-group col-md-3">
+						<label for="edad">Edad</label> <input class="form-control" type="text" name="edad"
+							id="edad">
+					</div>
+				</div>
+				<div class="form-row">
+				<div class="col-md-6">
+					<label for="banco">Numero Bancario</label> <input class="form-control" type="text"
+						name="banco" id="banco">
+				</div>
+				</div>
+				<br>
+				<input  type="submit" class="mx-6 btn btn-success " value="Añadir">
+		</form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="modal-body">
-        <p>One fine body…</p>
-    </div>
-    <div class="modal-footer">
-        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-        <button class="btn btn-primary">Save changes</button>
-    </div>
-</div>
-</form>
+
 	<!-- a href="/anadirAdmin"><input type="button" value="Anadir" class="m-12 btn btn-primary btn-sm"></a>-->
 
 	<footer th:replace="layout/layout :: footer"></footer>

@@ -53,7 +53,12 @@ $(document).ready(function() {
 
 
 		} else {
-		
+	
+       
+   
+            $("#myModal").modal('show');
+    
+  
 		}
 	});
 });
