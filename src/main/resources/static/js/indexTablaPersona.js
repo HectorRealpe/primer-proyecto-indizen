@@ -17,7 +17,7 @@ $(document).ready(function() {
 			{ "data": "edad" },
 			{ "data": "banco" },
 			{ "data": "pelis" },
-			{ "defaultContent": "<button type='submit' class='btn-transparent'><i class='fas fa-edit'></i></button>" }, 
+			{ "defaultContent": "<button type='submit' id='borrar' class='btn-transparent'><i class='fas fa-edit'></i></button>" }, 
 			{ "defaultContent": "<button type='submit' class='btn-transparent'><i class='fas fa-edit'></i></button>" }
 		]
 	});
@@ -38,9 +38,8 @@ $(document).ready(function() {
 			banco: data.banco,
 			pelis: data.pelis
 		};
+		if (this.id=="borrar"){
 		var json = JSON.stringify(objeto);
-	
-
 		$.ajax(
 			{
 				url: "http://localhost:8080/api/borrar",
@@ -51,8 +50,11 @@ $(document).ready(function() {
 				data: json,
 				contentType: "application/json"
 			});
-		
 
+	
+		}else{
+			alert("actualizausu");
+		}
 	});
 });
 
