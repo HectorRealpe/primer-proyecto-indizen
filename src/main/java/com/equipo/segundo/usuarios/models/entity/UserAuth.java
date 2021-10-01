@@ -16,7 +16,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="users")
-public class User implements Serializable {
+public class UserAuth implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,8 +34,11 @@ public class User implements Serializable {
 	@JoinColumn(name = "user_id")
 	private List<Role> roles;
 	
-	
-	public User(String username, String password, Boolean enabled, List<Role> roles) {
+	public UserAuth() {
+		super();
+	}
+
+	public UserAuth(String username, String password, Boolean enabled, List<Role> roles) {
 		super();
 		this.username = username;
 		this.password = password;

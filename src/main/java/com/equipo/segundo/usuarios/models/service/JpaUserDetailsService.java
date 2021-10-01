@@ -17,8 +17,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.equipo.segundo.usuarios.models.dao.UserAuthRepository;
 import com.equipo.segundo.usuarios.models.entity.Role;
+import com.equipo.segundo.usuarios.models.entity.UserAuth;
 
-@Service("jpaUserDetailsService")
+@Service("JpaUserDetailsService")
 public class JpaUserDetailsService implements UserDetailsService{
 
 	@Autowired
@@ -30,7 +31,7 @@ public class JpaUserDetailsService implements UserDetailsService{
 	@Transactional(readOnly=true)
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
-        com.equipo.segundo.usuarios.models.entity.User userauth = userRepo.findByUsername(username);
+        UserAuth userauth = userRepo.findByUsername(username);
         
         if(userauth == null) {
         	logger.error("Error en el Login: no existe el usuario '" + username + "' en el sistema!");
