@@ -16,11 +16,15 @@
 			</button>
 			<div class="collapse navbar-collapse">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active">
+					<!--  <li class="nav-item active">
 						<a class="nav-link" href="/index">Home</a>
-						</li>
+						</li>-->
 					<li class="nav-item"><a class="nav-link" href="#about"
 						th:href="@{/listar}">Usuarios</a></li>
+						<li class="nav-item"><a class="nav-link" href="#about"
+						th:href="@{/listarAdmin}">Lista Admin</a></li>
+						<li class="nav-item"><a class="nav-link" href="#about"
+						th:href="@{/anadirAdmin}">Anadir Usuario</a></li>
 				</ul>
 				<ul class="navbar-nav navbar-right">
 					<li sec:authorize="!isAuthenticated()">
