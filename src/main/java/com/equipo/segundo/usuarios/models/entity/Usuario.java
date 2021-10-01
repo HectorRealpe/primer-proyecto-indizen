@@ -1,10 +1,8 @@
-package com.equipo.segundo.usuarios.models;
+package com.equipo.segundo.usuarios.models.entity;
 
 import java.io.Serializable;
 
 import javax.persistence.*;
-
-import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name="usuarios")
@@ -21,14 +19,25 @@ public class Usuario implements Serializable {
 	private String email;
 	private int edad;
 	private String banco;
-	private boolean pelis;	
+	private boolean pelis;
+	
+	public Usuario() {
+	}
+
+	public Usuario(String nombre, String apellido, String nick, String sexo, String email, int edad, String banco, boolean pelis) {
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.nick = nick;
+		this.sexo = sexo;
+		this.email = email;
+		this.edad = edad;
+		this.banco = banco;
+		this.pelis = pelis;
+	}
+
 
 	public long getId() {
 		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
 	}
 
 	public String getNombre() {

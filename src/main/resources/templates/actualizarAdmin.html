@@ -10,13 +10,12 @@
 		method="post">
 
 		<div>
-			<label for="id">Id</label> <input type="text" name="id" id="id"
-				th:value="${usuario.apellido}">
+			<label for="id">Id</label> <input type="text" name="id" id="id">
 
 		</div>
 		<div>
 			<label for="nombre">Nombre</label> <input type="text" name="nombre"
-				id="nombre" >
+				id="nombre"  >
 
 		</div>
 		<div>
@@ -56,5 +55,15 @@
 			</div>
 		</div>
 	</form>
+	
+	<ul>
+	    <li th:text="${usuario.id}"></li>
+        <li th:text="${usuario.nombre}"></li>
+        <li th:text="${usuario.apellido}"></li>
+        <li th:text="${usuario.sexo}"></li>
+        <li th:text="${usuario.email}"></li>
+        <li th:text="${usuario.edad}"></li>
+        
+    </ul>
 </body>
 </html>

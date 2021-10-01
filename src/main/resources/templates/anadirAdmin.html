@@ -1,60 +1,74 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<head th:replace="layout/layout :: head"></head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<h1>Anadir Usuario</h1>
+	<h1 class="mx-5 my-3">Anadir Usuario</h1>
 
-<form th:action="@{/anadirAdmin}" th:object="${usuario}"
-		method="post">
 
-		<div>
-			<label for="id">Id</label> <input type="text" name="id" id="id">
-
-		</div>
-		<div>
-			<label for="nombre">Nombre</label> <input type="text" name="nombre"
-				id="nombre">
-
-		</div>
-		<div>
-			<label for="apellido">Apellidos</label> <input type="text"
-				name="apellido" id="apellido">
-
-		</div>
-		<div>
-			<label for="nick">Nick</label> <input type="text" name="nick"
-				id="nick">
-
-		</div>
-		<div>
-			<label for="sexo">Sexo</label> <input type="text" name="sexo"
-				id="sexo">
-
-		</div>
-		<div>
-			<label for="email">Email</label> <input type="email" name="email"
-				id="email">
-
-		</div>
-		<div>
-			<label for="edad">Edad</label> <input type="text" name="edad"
-				id="edad">
-
-		</div>
-		<div>
-			<label for="banco">Numero Bancario</label> <input type="text"
-				name="banco" id="banco">
-
-		</div>
-
-		<div>
-			<div>
-				<input type="submit" value="Anadir">
+	<div id="inputUsuario" class="mx-5">
+	
+		<form th:action="@{/anadirAdmin}" th:object="${usuario}" method="post">
+			<div class="form-row">
+				<div class="form-group col-md-3">
+					<label for="nombre">Nombre</label> <input class="form-control" type="text" name="nombre"
+						id="nombre">
+				</div>
+				<div class="form-group col-md-3">
+					<label for="apellido">Apellidos</label> <input  class="form-control" type="text"
+						name="apellido" id="apellido">
+				</div>
 			</div>
-		</div>
-	</form>
+			
+			
+			<div class="form-row">
+				<div class="form-group col-md-3">
+					<label for="nick">Nick</label> <input class="form-control" type="text" name="nick"
+						id="nick">
+				</div>
+				<!-- div class="form-group col-md-6">
+					<label for="sexo">Sexo</label> <select th:field="*{sexo}">
+						<option th:value="'M'" th:text="Male"></option>
+						<option th:value="'F'" th:text="Female"></option>
+					</select>
+				</div>
+				<div class="form-row">-->
+					<div class="form-group col-md-3">
+						<label for="sexo">Sexo</label> <input  class="form-control" type="text" name="sexo"
+							id="sexo">
+					</div>
+
+				</div>
+
+				<div class="form-row">
+
+					<div class="form-group col-md-3">
+						<label for="email">Email</label> <input class="form-control" type="email" name="email"
+							id="email">
+					</div>
+					<div class="form-group col-md-3">
+						<label for="edad">Edad</label> <input class="form-control" type="text" name="edad"
+							id="edad">
+					</div>
+				</div>
+				<div class="form-row">
+				<div class="col-md-6">
+					<label for="banco">Numero Bancario</label> <input class="form-control" type="text"
+						name="banco" id="banco">
+				</div>
+				</div>
+				<br>
+				<input  type="submit" class="mx-6 btn btn-success " value="Añadir">
+		</form>
+	</div>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+
 </body>
 </html>
