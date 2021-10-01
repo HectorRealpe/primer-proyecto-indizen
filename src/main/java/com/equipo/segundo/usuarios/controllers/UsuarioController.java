@@ -92,6 +92,7 @@ public class UsuarioController {
 	}
 	
 	@PostMapping("/borrar")
+	@contentType
 	public ResponseEntity<HttpStatus> deleteUsuario(@RequestBody Usuario usuario) {
 		try {
 			
