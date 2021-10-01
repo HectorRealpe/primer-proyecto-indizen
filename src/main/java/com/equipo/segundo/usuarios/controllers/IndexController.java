@@ -1,8 +1,5 @@
 package com.equipo.segundo.usuarios.controllers;
 
-
-import java.util.Collection;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
