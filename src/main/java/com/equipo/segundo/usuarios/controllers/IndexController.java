@@ -31,6 +31,38 @@ public class IndexController {
 	
 	@Autowired
 	private UsuarioRepository userRepo;
+
+	// Routing inicial y paso de datos del controlador a la vista para un HTML muy básico
+	@GetMapping({"/index","/", "/home"})
+	public String index(Model model) {	
+		model.addAttribute("titulo", "Video Club");
+		model.addAttribute("welcome", "Bienvenido");
+		model.addAttribute("login", "Iniciar Sesion");
+		model.addAttribute("email", "Tu id");
+		model.addAttribute("password", "Tu nombre");
+		model.addAttribute("question", "¿Aun no te has registrado?");
+		model.addAttribute("singIn", "Registrar");
+		return "index";
+		
+	}
+	
+	
+	@GetMapping("/form")
+    public String form(Model model) {
+        model.addAttribute("titulo", "Formulario usuarios");
+        return "formulario";
+    }
+    
+    @PostMapping("/form")
+    public String procesar(Usuario usuario, Model model) {
+    	
+
+        model.addAttribute("titulo", "Hemos añadido este usuario a la base de datos");
+        model.addAttribute("usuario", usuario);
+        
+        return "resultado";
+    }
+    
     
     //LISTAR USUARIOS
 	@Secured({"ROLE_USER"})
@@ -118,22 +150,22 @@ public class IndexController {
 	
 	// COMPROBANDO LA SEGURIDAD DESDE EL CONTROLADOR
 	
-	private boolean hasRole(String role) {
-		SecurityContext context = SecurityContextHolder.getContext();
-		
-		if(context == null) {
-			return false;
-		}
-		
-		Authentication auth = context.getAuthentication();
-		
-		if(auth == null) {
-			return false;
-		}
-		
-		Collection<? extends GrantedAuthority> authorities = auth.getAuthorities();
-		
-		return authorities.contains(new SimpleGrantedAuthority(role));
-	}
+//	private boolean hasRole(String role) {
+//		SecurityContext context = SecurityContextHolder.getContext();
+//		
+//		if(context == null) {
+//			return false;
+//		}
+//		
+//		Authentication auth = context.getAuthentication();
+//		
+//		if(auth == null) {
+//			return false;
+//		}
+//		
+//		Collection<? extends GrantedAuthority> authorities = auth.getAuthorities();
+//		
+//		return authorities.contains(new SimpleGrantedAuthority(role));
+//	}
 	
 }

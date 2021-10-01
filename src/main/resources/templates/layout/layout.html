@@ -66,8 +66,9 @@
 		<hr />
 		<img th:src="@{/images/indizen_icono.png}" alt="Indizen logo" />
 		<p sec:authorize="isAuthenticated()">
-			Usuario logeado: <span sec:authentication="name"></span> | Roles: <span
-				sec:authentication="principal.authorities"></span>
+			Usuario logeado: <span sec:authentication="name"></span> 
+			| Roles: 
+			<span sec:authentication="principal.authorities"></span>
 		</p>
 		<p>
 			Proyecto desarrollado para Indizen en un curso de formación Full

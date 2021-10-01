@@ -16,8 +16,7 @@ import org.springframework.web.servlet.support.SessionFlashMapManager;
 public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler{
 
 	@Override
-	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
-			Authentication authentication) throws IOException, ServletException {
+	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
 
 		SessionFlashMapManager flashMapManager = new SessionFlashMapManager();
 		
